@@ -152,7 +152,7 @@ const Body = () => {
           <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-10 py-14 border-[#ecc9bo] border-t border-b">
             <div className="flex flex-col items-center sm:items-start gap-5">
               <div className="flex items-center gap-2">
-                <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                <i className="fas fa-phone-alt text-white" aria-hidden="true"></i>
                 <a
                   href="tel: +233209119731"
                   className="text-[#c7c7c7] font-gt-regular text-lg"
@@ -161,7 +161,7 @@ const Body = () => {
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <i className="fas fa-envelope" aria-hidden="true"></i>
+                <i className="fas fa-envelope text-white" aria-hidden="true"></i>
                 <a
                   href="mailto:joeyatteen@gmail.com"
                   className="text-[#c7c7c7] font-gt-regular text-lg"
@@ -197,7 +197,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="mb-8">
+      <div className="pb-8">
         <h5 className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a] mb-3">
           COOKED WITH REACT & TAILWINDCSS
         </h5>
