@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "GT-Walsheim-UltraLight";
+  src: url("./GT-Walsheim-Ultra-Light.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Thin";
+  src: url("./GT-Walsheim-Thin.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Light";
+  src: url("./GT-Walsheim-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Regular";
+  src: url("./GT-Walsheim-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Medium";
+  src: url("./GT-Walsheim-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-SemiBold";
+  src: url("./GT-Walsheim-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Bold";
+  src: url("./GT-Walsheim-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT-Walsheim-UltraBold";
+  src: url("./GT-Walsheim-Ultra-Bold-Wide.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'GT-Walsheim-Italic';
+    src: url('./GT-Walsheim-Italic.otf') format('otf');
+    font-weight: 400;
+    font-style: italic;
+  } */

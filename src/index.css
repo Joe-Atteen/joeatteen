@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1a1a1a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+a {
+  font-weight: 500;
+  color: #ecc9b0;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #e3a477;
+}
+
+body {
+  margin: auto;
+  max-width: 1280px;
+  min-height: 100dvh;
+  padding: 0 1.6em;
+}
+
+@media (max-width: 1279px) {
+  body {
+    max-width: 1000px;
+  }
+
+  h1 {
+    font-size: 7.5rem !important;
+    line-height: 5.5rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 6rem !important;
+    line-height: 4.5rem !important;
+  }
+
+  h6 {
+    font-size: 1.5rem !important;
+  }
+
+  /* .name {
+    font-size: clamp(1rem, 10dvw, 2rem) !important;
+  }
+
+  .title {
+    font-size: clamp(.5rem, 10dvw, 1rem) !important;
+    line-height: 1.2rem !important;
+  }
+
+  .profile, .work-title, .date, .list {
+    font-size: clamp(.1rem, 8dvw, .8rem) !important;
+  }
+
+  .heading {
+    font-size: clamp(.5rem, 10dvw, 1rem) !important;
+  }
+
+  .job {
+    font-size: clamp(.1rem, 8dvw, .8rem) !important;
+    line-height: 1rem !important;
+  } */
+}
+
+@media (min-width: 481px) and (max-width: 730px) {
+  h1 {
+    font-size: clamp(2.5rem, 12dvw, 10rem) !important;
+    line-height: 3rem !important;
+    margin-bottom: 0.5rem;
+  }
+
+  h6 {
+    font-size: clamp(0.5rem, 10dvw, 1.2rem) !important;
+    line-height: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: clamp(1rem, 13dvw, 10rem) !important;
+    line-height: 3rem !important;
+  }
+
+  h6 {
+    font-size: clamp(0.5rem, 8dvw, 1.2rem) !important;
+  }
+}
+
+h2 {
+  font-size: clamp(2.5rem, 10dvw, 6rem) !important;
+  line-height: 4rem !important;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 10dvw, 2.5rem) !important;
+  line-height: 3rem !important;
+}
+
+p {
+  font-size: clamp(0.7rem, 10dvw, 1.5rem) !important;
+  line-height: 2rem !important;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.hero-bg {
+  background: url(assets/images/hero-bg.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.latest-bg {
+  background: url(assets/images/latest.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.latest-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(105, 105, 105, 0.3);
+  z-index: 1;
+}
+
+.latest-bg > .z-10 {
+  position: relative;
+  z-index: 2 !important;
+}
+
+.contact-bg {
+  background: url(assets/images/contact-bg.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.9);
+  z-index: 1;
+}
+
+.contact-bg > .z-10 {
+  position: relative;
+  z-index: 2;
+}
+
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #4b4b4b;
+  font-weight: 900;
+  opacity: 1;
+  background: #c6c6c6;
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #a5734f;
+}
+
+.mouse {
+    border: solid 2px #a2a2a2;
+    border-radius: 16px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    height: 50px;
+    position: relative;
+    width: 32px;
+}
+
+.mouse .wheel {
+    background: #c2c2c2;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    animation: ani-mouse 1.5s linear infinite;
+}
+
+/* Add the keyframes for the scroll animation */
+@keyframes ani-mouse {
+    0% {
+        top: 33px;
+        opacity: 1;
+    }
+    50% {
+        top: 25px;
+        opacity: 1;
+    }
+    100% {
+        top: 8px;
+        opacity: 1;
+    }
+}
