@@ -32,7 +32,7 @@ const Navbar = () => {
             />
             <div className="font-gt-regular transform -translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
               <a
-                href={`src/assets/images/atteen-resume.pdf`}
+                href={`./src/assets/images/atteen-resume.pdf`}
                 target="_blank"
               >
                 Resume
