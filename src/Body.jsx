@@ -60,7 +60,7 @@ const Body = () => {
 
       <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full w-full mb-20 ">
         <div className="flex flex-col">
-          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-16 text-center">
+          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-8 sm:mb-10 md:mb-16 text-center">
             Latest Work
           </h2>
           <div>
@@ -71,7 +71,7 @@ const Body = () => {
 
       <div className="p-5 py-10 sm:p-16 sm:py-20 bg-[#1f1f1f] h-full w-full mb-20">
         <div className="flex flex-col">
-          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-16 text-center">
+          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-8 sm:mb-10 md:mb-16 text-center">
             Toolbox
           </h2>
           <div className="flex flex-wrap gap-1 sm:gap-6 justify-center">
@@ -152,7 +152,10 @@ const Body = () => {
           <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-10 py-14 border-[#ecc9bo] border-t border-b">
             <div className="flex flex-col items-center sm:items-start gap-5">
               <div className="flex items-center gap-2">
-                <i className="fas fa-phone-alt text-white" aria-hidden="true"></i>
+                <i
+                  className="fas fa-phone-alt text-white"
+                  aria-hidden="true"
+                ></i>
                 <a
                   href="tel: +233209119731"
                   className="text-[#c7c7c7] font-gt-regular text-lg"
@@ -161,7 +164,10 @@ const Body = () => {
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <i className="fas fa-envelope text-white" aria-hidden="true"></i>
+                <i
+                  className="fas fa-envelope text-white"
+                  aria-hidden="true"
+                ></i>
                 <a
                   href="mailto:joeyatteen@gmail.com"
                   className="text-[#c7c7c7] font-gt-regular text-lg"
