@@ -176,7 +176,7 @@ const Body = () => {
                 </a>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="https://github.com/Joe-Atteen" target="_blank">
                 <i className="fab fa-github text-[50px]" aria-hidden="true"></i>
               </a>
