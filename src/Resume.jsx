@@ -2,7 +2,7 @@ import { useRef } from "react";
 import generatePDF from "react-to-pdf";
 
 const Resume = () => {
-    const resumeRef = useRef();
+  const resumeRef = useRef();
 
   return (
     <div className="min-h-screen md:p-[10px] lg:p-8 text-black">
@@ -19,7 +19,7 @@ const Resume = () => {
 
       <div
         ref={resumeRef}
-        className="max-w-5xl mx-auto bg-white p-11 pt-7 rounded-lg shadow-lg grid grid-cols-3 gap-8"
+        className="max-w-5xl mx-auto bg-white p-11 pt-6 pb-2 rounded-lg shadow-lg grid grid-cols-3 gap-8"
       >
         {/* Left Column */}
         <div className="col-span-2">
@@ -264,6 +264,7 @@ const Resume = () => {
               <li className="leading-tight list">
                 Cross-browser Compatibility
               </li>
+              <li className="leading-tight list">State Management</li>
               <li className="leading-tight list">Version Control (Git)</li>
             </ul>
           </div>
@@ -281,7 +282,9 @@ const Resume = () => {
               <li className="leading-tight list">Tailwind</li>
               <li className="leading-tight list">React</li>
               <li className="leading-tight list">TypeScript</li>
-              <li className="leading-tight list">NextJs</li>
+              <li className="leading-tight list">Next.js</li>
+              <li className="leading-tight list">Node.js</li>
+              <li className="leading-tight list">Redux</li>
             </ul>
           </div>
 
