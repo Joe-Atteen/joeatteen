@@ -20,7 +20,7 @@ const Hero = () => {
         } transition-transform duration-1000 ease-in-out`}
       >
         <div className="absolute inset-0 bg-[#1f1f1f] opacity-85 z-0 rounded-t-[50px]"></div>
-        <div className="absolute bottom-0 left-[50%] grayscale-[.2] transform -translate-x-[50%] h-[400px] w-[500px] max-[730px]:h-[300px] max-[730px]:w-[400px] max-[480px]:h-[240px] max-[480px]:w-[300px] max-[330px]:w-[90%]">
+        <div className="absolute bottom-0 left-[50%] grayscale-[.1] transform -translate-x-[50%] h-[400px] w-[500px] max-[730px]:h-[300px] max-[730px]:w-[400px] max-[480px]:h-[240px] max-[480px]:w-[300px] max-[330px]:w-[90%]">
           <img
             src={hero}
             alt="Profile"

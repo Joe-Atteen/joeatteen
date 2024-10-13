@@ -32,7 +32,7 @@ const Slider = () => {
                   <h5 className="font-gt-medium text-[20px] sm:text-[30px] text-white">
                     CediRates
                   </h5>
-                  <i className="fas fa-external-link-alt text-2xl sm:text-4xl text-white"></i>
+                  <i className="fa fa-arrow-right text-2xl sm:text-4xl text-white"></i>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ const Slider = () => {
         </Link>
       </SwiperSlide>
       <SwiperSlide>
-        <Link to="/cedirates">
+        <Link to="/creditscore">
           <div className="max-w-[900px] mx-auto h-[550px] rounded-[20px] overflow-hidden">
             <div className="latest-bg relative overflow-hidden">
               <div className="z-10">
@@ -54,7 +54,7 @@ const Slider = () => {
                   <h5 className="font-gt-medium text-[20px] sm:text-[30px] text-white">
                     myCreditScore
                   </h5>
-                  <i className="fas fa-external-link-alt text-2xl sm:text-4xl text-white"></i>
+                  <i className="fa fa-arrow-right text-2xl sm:text-4xl text-white"></i>
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const Slider = () => {
         </Link>
       </SwiperSlide>
       <SwiperSlide>
-        <Link to="/cedirates">
+        <Link to="/dev-portal">
           <div className="max-w-[900px] mx-auto h-[550px] rounded-[20px] overflow-hidden">
             <div className="latest-bg relative overflow-hidden">
               <div className="z-10">
@@ -75,15 +75,11 @@ const Slider = () => {
                   <h5 className="font-gt-medium text-[20px] sm:text-[30px] text-white">
                     Dev Portal
                   </h5>
-                  <i className="fas fa-external-link-alt text-2xl sm:text-4xl text-white"></i>
+                  <i className="fa fa-arrow-right text-2xl sm:text-4xl text-white"></i>
                 </div>
               </div>
             </div>
-            <img
-              src={dev}
-              alt="dev"
-              className="w-full h-full object-cover"
-            />
+            <img src={dev} alt="dev" className="w-full h-full object-cover" />
           </div>
         </Link>
       </SwiperSlide>

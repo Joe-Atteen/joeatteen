@@ -25,7 +25,7 @@ a:hover {
 
 body {
   margin: auto;
-  max-width: 1280px;
+  max-width: 1300px;
   min-height: 100dvh;
   padding: 0 1.6em;
   background-color: #1a1a1a;
@@ -220,7 +220,7 @@ button:focus-visible {
   color: #4b4b4b;
   font-weight: 900;
   opacity: 1;
-  background: #c6c6c6;
+  background: #f1f1f1;
 }
 
 .swiper-pagination-bullet-active {

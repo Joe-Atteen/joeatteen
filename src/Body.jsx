@@ -49,7 +49,7 @@ const Body = () => {
           <h3 className="font-gt-medium text-white mb-5 md:w-[80%] xl:w-[65%]">
             Hi 👋, I&apos;m Joe, a UX and Frontend Engineer based in Ghana.
           </h3>
-          <p className="font-gt-regular text-[#c7c7c7]">
+          <p className="font-gt-light text-[#c7c7c7]">
             I specialize in building efficient, user-friendly and responsive
             interfaces with clean code. My goal is to deliver smooth digital
             experiences through well-crafted engineering. Let’s create something
@@ -145,7 +145,7 @@ const Body = () => {
             <h3 className="font-gt-bold text-[#ecc9b0] mb-4">
               So about that new project...
             </h3>
-            <p className="font-gt-regular text-[#c7c7c7]">
+            <p className="font-gt-light text-[#c7c7c7]">
               I am just a text or mail away. Pleased to make your acquiantance
             </p>
           </div>
@@ -158,7 +158,7 @@ const Body = () => {
                 ></i>
                 <a
                   href="tel: +233209119731"
-                  className="text-[#c7c7c7] font-gt-regular text-lg"
+                  className="text-[#c7c7c7] font-gt-light text-lg"
                 >
                   +233 20 911 9731
                 </a>
@@ -170,7 +170,7 @@ const Body = () => {
                 ></i>
                 <a
                   href="mailto:joeyatteen@gmail.com"
-                  className="text-[#c7c7c7] font-gt-regular text-lg"
+                  className="text-[#c7c7c7] font-gt-light text-lg"
                 >
                   joeyatteen@gmail.com
                 </a>
