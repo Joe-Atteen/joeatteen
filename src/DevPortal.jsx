@@ -79,7 +79,7 @@ const Cedirates = () => {
         <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
           <img src={search} alt="fuel" className="w-full h-full object-cover" />
         </div>
-        <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
+        <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden">
           <img src={api} alt="cc" className="w-full h-full object-cover" />
         </div>
       </div>
