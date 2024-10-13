@@ -16,7 +16,7 @@ const Cedirates = () => {
     <div className="py-10">
       <div className="flex mb-10">
         <button
-          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a]"
+          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a] bg-[#1a1a1a]"
           onClick={() => navigate(-1)}
         >
           <i className="fa fa-arrow-left text-xl sm:text-3xl text-white"></i>
@@ -36,12 +36,12 @@ const Cedirates = () => {
           </a>
           <div className="max-w-[500px]">
             <p className="font-gt-thin text-white mb-5 sm:mb-10 lg:mb-14">
-              The developers portal is a centralized platform that
-              provides developers with the tools, documentation, APIs, SDKs, and
+              The developers portal is a centralized platform that provides
+              developers with the tools, documentation, APIs, SDKs, and
               resources they need to efficiently build, integrate, and manage
               applications. Converted design design to code on this one.
             </p>
-            <div className="flex flex-wrap gap-2 font-gt-light">
+            <div className="flex flex-wrap gap-2 font-gt-light text-white">
               <div className="inline-flex p-2 border border-white rounded-lg">
                 Html
               </div>

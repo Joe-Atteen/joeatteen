@@ -17,7 +17,7 @@ const Cedirates = () => {
     <div className="py-10">
       <div className="flex mb-10">
         <button
-          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a]"
+          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a] bg-[#1a1a1a]"
           onClick={() => navigate(-1)}
         >
           <i className="fa fa-arrow-left text-xl sm:text-3xl text-white"></i>
@@ -41,7 +41,7 @@ const Cedirates = () => {
               fuel prices and exchange rates. Currently leading a team of
               engineers to build and manage this web app.
             </p>
-            <div className="flex flex-wrap gap-2 font-gt-light">
+            <div className="flex flex-wrap gap-2 font-gt-light text-white">
               <div className="inline-flex p-2 border border-white rounded-lg">
                 Web app
               </div>

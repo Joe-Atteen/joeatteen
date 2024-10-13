@@ -17,7 +17,7 @@ const Cedirates = () => {
     <div className="py-10">
       <div className="flex mb-10">
         <button
-          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a]"
+          className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a] bg-[#1a1a1a]"
           onClick={() => navigate(-1)}
         >
           <i className="fa fa-arrow-left text-xl sm:text-3xl text-white"></i>
@@ -38,12 +38,12 @@ const Cedirates = () => {
           </a>
           <div className="max-w-[500px]">
             <p className="font-gt-thin text-white mb-5 sm:mb-10 lg:mb-14">
-              myCreditScore is a web application that delivers users their credit scores and
-              detailed credit reports. The primary goal is to promote accessible
-              and responsible credit management in Ghana. I was responsible for
-              developing the user interface.
+              myCreditScore is a web application that delivers users their
+              credit scores and detailed credit reports. The primary goal is to
+              promote accessible and responsible credit management in Ghana. I
+              was responsible for developing the user interface.
             </p>
-            <div className="flex flex-wrap gap-2 font-gt-light">
+            <div className="flex flex-wrap gap-2 font-gt-light text-white">
               <div className="inline-flex p-2 border border-white rounded-lg">
                 Web app
               </div>
@@ -72,7 +72,11 @@ const Cedirates = () => {
           />
         </div>
         <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
-          <img src={purple} alt="rates" className="w-full h-full object-cover" />
+          <img
+            src={purple}
+            alt="rates"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
           <img src={yellow} alt="fuel" className="w-full h-full object-cover" />
