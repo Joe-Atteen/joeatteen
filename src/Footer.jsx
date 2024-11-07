@@ -21,7 +21,7 @@ const handleGoHome = () => {
               Go back home
             </Link>
             <div className="flex flex-col gap-5">
-              <h3 className="font-gt-ultrabold text-nowrap">All Projects</h3>
+              <h3 className="font-gt-ultrabold text-nowrap text-white">All Projects</h3>
               <div className="flex flex-wrap gap-4 font-gt-medium">
                 <Link to="/cedirates">
                   <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
@@ -46,7 +46,7 @@ const handleGoHome = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+      <div className="flex flex-wrap items-center justify-center gap-4 pb-10">
         <a href="https://github.com/Joe-Atteen" target="_blank">
           <i className="fab fa-github text-[30px]" aria-hidden="true"></i>
         </a>
