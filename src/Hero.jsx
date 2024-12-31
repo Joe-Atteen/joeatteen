@@ -5,10 +5,6 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Preload the image
-    const img = new Image();
-    img.src = hero;
-
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
