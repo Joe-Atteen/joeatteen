@@ -15,7 +15,7 @@ const Cedirates = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="max-w-[1300px] mx-auto">
       <div className="py-10">
         <div className="flex mb-10">
           <button

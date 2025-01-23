@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 const Home = () => {
     return (
-      <div>
+      <div className="max-w-[1300px] mx-auto">
         <Navbar />
         <Hero />
         <Body />

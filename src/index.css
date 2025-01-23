@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
   background-color: #1a1a1a;
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -21,12 +21,12 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #e3a477;
+  color: #e3a477 !important;
 }
 
 body {
   margin: auto;
-  max-width: 1300px;
+  /* max-width: 1300px; */
   min-height: 100dvh;
   padding: 0 1.6em;
   background-color: #1a1a1a;
