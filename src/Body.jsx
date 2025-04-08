@@ -10,8 +10,37 @@ import nextjs from "./assets/images/nextjs.webp";
 import react from "./assets/images/react.webp";
 import git from "./assets/images/git.webp";
 import nodejs from "./assets/images/nodejs.webp";
-import Slider from "./Slider";
 import { useEffect, useRef, useState } from "react";
+import EmblaCarousel from "./carousel/EmblaCarousel";
+import cedirates from "./assets/images/cedirates.webp";
+import creditscore from "./assets/images/creditscore.webp";
+import dev from "./assets/images/dev-portal.webp";
+import hubtel from "./assets/images/hubtel.webp";
+
+const OPTIONS = { align: "start" };
+
+const slides = [
+  {
+    image: cedirates,
+    title: "CediRates",
+    link: "/cedirates",
+  },
+  {
+    image: creditscore,
+    title: "myCreditScore",
+    link: "/creditscore",
+  },
+  {
+    image: dev,
+    title: "Dev Portal",
+    link: "/dev-portal",
+  },
+  {
+    image: hubtel,
+    title: "Hubtel Web",
+    link: "/hubtel",
+  },
+];
 
 const Body = () => {
   const [isBodyVisible, setBodyVisible] = useState(false);
@@ -64,7 +93,7 @@ const Body = () => {
             Latest Work
           </h2>
           <div>
-            <Slider />
+            <EmblaCarousel slides={slides} options={OPTIONS} />
           </div>
         </div>
       </div>

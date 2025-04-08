@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-// const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-const handleGoHome = () => {
-//   navigate(-1);
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+  const handleGoHome = () => {
+    //   navigate(-1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -21,7 +21,9 @@ const handleGoHome = () => {
               Go back home
             </Link>
             <div className="flex flex-col gap-5">
-              <h3 className="font-gt-ultrabold text-nowrap text-white">All Projects</h3>
+              <h3 className="font-gt-ultrabold text-nowrap text-white">
+                All Projects
+              </h3>
               <div className="flex flex-wrap gap-4 font-gt-medium">
                 <Link to="/cedirates">
                   <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
@@ -38,6 +40,12 @@ const handleGoHome = () => {
                 <Link to="/dev-portal">
                   <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
                     Developers Portal
+                    <i className="fa fa-arrow-right"></i>
+                  </div>
+                </Link>
+                <Link to="/hubtel">
+                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
+                    Hubtel Web
                     <i className="fa fa-arrow-right"></i>
                   </div>
                 </Link>
