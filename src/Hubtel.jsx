@@ -27,7 +27,7 @@ const Cedirates = () => {
         <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full max-w-[950px] mx-auto">
           <div className="flex flex-col">
             <a
-              href="https://mycreditscore.com.gh/"
+              href="https://hubtel.com/"
               target="_blank"
               className="font-gt-bold uppercase text-white mb-5 sm:mb-10 lg:mb-14 flex items-start gap-5"
             >
@@ -79,14 +79,14 @@ const Cedirates = () => {
             />
           </div>
           <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
-            <img
-              src={get}
-              alt="fuel"
-              className="w-full h-full object-cover"
-            />
+            <img src={get} alt="fuel" className="w-full h-full object-cover" />
           </div>
           <div className="max-w-[1080px] mx-auto rounded-[20px] shadow-2xl overflow-hidden mb-10">
-            <img src={section} alt="cc" className="w-full h-full object-cover" />
+            <img
+              src={section}
+              alt="cc"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
