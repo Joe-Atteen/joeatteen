@@ -39,15 +39,18 @@ const Cedirates = () => {
             </a>
             <div className="max-w-[500px]">
               <p className="font-gt-thin text-white mb-5 sm:mb-10 lg:mb-14">
-                This is a Next.js application designed for modern web
-                development. It leverages React for building user interfaces and
-                integrates Auth.js for authentication, supporting providers like
-                GitHub and Google. The backend is powered by MongoDB for
-                database management, and OpenAI&apos;s API is utilized for an
-                AI-driven feature. The project uses Tailwind CSS for styling,
-                ensuring a responsive and visually appealing design. Development
-                is streamlined with tools like PostCSS, ESLint, and TypeScript
-                for type safety.
+                This is a Next.js application modeled after Stack Overflow where
+                users can ask questions and have them answered. There&apos;s the
+                option to upvote or downvote a question or answer and many more
+                interesting features. It leverages React for building user
+                interfaces and integrates Auth.js for authentication, supporting
+                providers like GitHub and Google. The backend is powered by
+                MongoDB for database management, and OpenAI&apos;s API is
+                utilized for an AI-driven feature. The project uses Tailwind CSS
+                for styling, ensuring a responsive and visually appealing
+                design. Development is streamlined with tools like PostCSS,
+                ESLint, and TypeScript for type safety. It&apos;s still work in
+                progress.
               </p>
               <div className="flex flex-wrap gap-2 font-gt-light text-white">
                 <div className="inline-flex p-2 border border-white rounded-lg">
