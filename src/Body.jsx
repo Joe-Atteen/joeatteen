@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import EmblaCarousel from "./carousel/EmblaCarousel";
 import cedirates from "./assets/images/cedirates.webp";
 import creditscore from "./assets/images/creditscore.webp";
+import tekquest from "./assets/images/tekquest.webp";
 import dev from "./assets/images/dev-portal.webp";
 import hubtel from "./assets/images/hubtel.webp";
 
@@ -31,6 +32,11 @@ const slides = [
     link: "/creditscore",
   },
   {
+    image: tekquest,
+    title: "TekQuest",
+    link: "/tekquest",
+  },
+  {
     image: dev,
     title: "Dev Portal",
     link: "/dev-portal",
@@ -44,32 +50,32 @@ const slides = [
 
 const Body = () => {
   const [isBodyVisible, setBodyVisible] = useState(false);
-    const bodyRef = useRef(null);
-    
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setBodyVisible(true);
-          }
-        },
-        {
-          rootMargin: "0px 0px -100px 0px", // Adjust as needed
-          threshold: 0.5, // Trigger when 10% of the body is in view
-        }
-      );
+  const bodyRef = useRef(null);
 
-      const currentBodyRef = bodyRef.current;
-      if (currentBodyRef) {
-        observer.observe(currentBodyRef);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBodyVisible(true);
+        }
+      },
+      {
+        rootMargin: "0px 0px -100px 0px", // Adjust as needed
+        threshold: 0.5, // Trigger when 10% of the body is in view
       }
+    );
 
-      return () => {
-        if (currentBodyRef) {
-          observer.unobserve(currentBodyRef);
-        }
-      };
-    }, []);
+    const currentBodyRef = bodyRef.current;
+    if (currentBodyRef) {
+      observer.observe(currentBodyRef);
+    }
+
+    return () => {
+      if (currentBodyRef) {
+        observer.unobserve(currentBodyRef);
+      }
+    };
+  }, []);
 
   return (
     <div id="about" ref={bodyRef} className={isBodyVisible ? "visible" : ""}>
@@ -79,19 +85,42 @@ const Body = () => {
             Hi 👋, I&apos;m Joe, a UX and Frontend Engineer based in Ghana.
           </h3>
           <p className="font-gt-light text-[#c7c7c7]">
-            I specialize in building efficient, user-friendly and responsive
-            interfaces with clean code. My goal is to deliver smooth digital
-            experiences through well-crafted engineering. Let’s create something
-            awesome!
+            I develop intuitive, high-performance user interfaces that sit at
+            the intersection of design and code. With a strong foundation in
+            user experience and frontend architecture, I bring digital products
+            to life through clean, scalable, and maintainable code. <br />
+            <br />I specialize in building modern web experiences using React,
+            Next.js, TypeScript, Tailwind CSS, and various UI framweworks like
+            ShadCN UI, with additional strengths in HTML, CSS, Bootstrap,
+            JavaScript, responsive design and design systems, ensuring
+            consistency and polish across products. I work closely with design
+            teams—often translating Figma files into pixel-perfect, accessible
+            interfaces.
+            <br />
+            <br />
+            On the backend, I have just about enough experience with Node.js to
+            build and integrate APIs, handle data workflows, and support
+            full-stack development when needed.
+            <br />
+            <br /> Whether it&apos;s crafting interactive components, optimizing
+            performance, or improving UX flows, I focus on delivering seamless,
+            user-first experiences.
+            <br />
+            <br /> Let’s build something people love to use.
           </p>
         </div>
       </div>
 
       <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full w-full mb-20 ">
         <div className="flex flex-col">
-          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-8 sm:mb-10 md:mb-16 text-center">
+          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-4 sm:mb-8 text-center">
             Latest Work
           </h2>
+          <p className="font-gt-light text-[#c7c7c7] mb-8 sm:mb-10 md:mb-16 text-center max-w-[820px] mx-auto"> 
+            A curated selection of projects showcasing my focus on user
+            experience, clean frontend architecture, and responsive design —
+            built for real users and real impact.
+          </p>
           <div>
             <EmblaCarousel slides={slides} options={OPTIONS} />
           </div>
@@ -237,7 +266,7 @@ const Body = () => {
           COOKED WITH REACT & TAILWINDCSS
         </h5>
         <h5 className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a]">
-          LAST UPDATED 6•10•2024
+          LAST UPDATED 10•4•2025
         </h5>
       </div>
     </div>
