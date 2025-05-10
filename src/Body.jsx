@@ -116,7 +116,7 @@ const Body = () => {
           <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-4 sm:mb-8 text-center">
             Latest Work
           </h2>
-          <p className="font-gt-light text-[#c7c7c7] mb-8 sm:mb-10 md:mb-16 text-center max-w-[820px] mx-auto"> 
+          <p className="font-gt-light text-[#c7c7c7] mb-8 sm:mb-10 md:mb-16 text-center max-w-[820px] mx-auto">
             A curated selection of projects showcasing my focus on user
             experience, clean frontend architecture, and responsive design —
             built for real users and real impact.
@@ -253,6 +253,12 @@ const Body = () => {
               <a href="https://wa.me/233209119731" target="_blank">
                 <i
                   className="fab fa-whatsapp text-[50px]"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a href="/atteen-resume.pdf" target="_blank">
+                <i
+                  className="	fa fa-file-pdf-o text-[48px]"
                   aria-hidden="true"
                 ></i>
               </a>

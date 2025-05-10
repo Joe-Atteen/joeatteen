@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  // const navigate = useNavigate();
-
   const handleGoHome = () => {
-    //   navigate(-1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -12,7 +9,7 @@ const Footer = () => {
     <>
       <div className="contact-bg relative overflow-hidden mb-10">
         <div className="z-10">
-          <div className="border-[#404040] border-t border-b py-10 flex justify-between items-start max-md:flex-col gap-10 px-3 sm:px-5">
+          <div className="border-[#404040] border-t border-b py-10 flex justify-between items-start max-md:flex-col gap-10 md:gap-20 px-3 sm:px-5">
             <Link
               to="/"
               onClick={handleGoHome}
@@ -34,6 +31,12 @@ const Footer = () => {
                 <Link to="/creditscore">
                   <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
                     myCreditScore
+                    <i className="fa fa-arrow-right"></i>
+                  </div>
+                </Link>
+                <Link to="/tekquest">
+                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
+                    TekQuest
                     <i className="fa fa-arrow-right"></i>
                   </div>
                 </Link>
@@ -66,6 +69,9 @@ const Footer = () => {
         </a>
         <a href="https://wa.me/233209119731" target="_blank">
           <i className="fab fa-whatsapp text-[30px]" aria-hidden="true"></i>
+        </a>
+        <a href="/atteen-resume.pdf" target="_blank">
+          <i className="	fa fa-file-pdf-o text-[30px]" aria-hidden="true"></i>
         </a>
       </div>
     </>

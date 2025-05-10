@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import cedirates from "./assets/images/cedirates.webp";
 import cc from "./assets/images/cc.webp";
@@ -6,25 +5,18 @@ import fuel from "./assets/images/fuel.webp";
 import rates from "./assets/images/rates.webp";
 import bog from "./assets/images/bog.webp";
 import Footer from "./Footer";
+import TopNav from "./TopNav";
 
 const Cedirates = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
 
   return (
     <div className="max-w-[1300px] mx-auto">
       <div className="py-10">
-        <div className="flex mb-10">
-          <button
-            className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a] bg-[#1a1a1a]"
-            onClick={() => navigate(-1)}
-          >
-            <i className="fa fa-arrow-left text-xl sm:text-3xl text-white"></i>
-          </button>
-        </div>
+        <TopNav />
         <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full max-w-[950px] mx-auto">
           <div className="flex flex-col">
             <a
@@ -37,10 +29,13 @@ const Cedirates = () => {
                 <i className="fas fa-external-link-alt text-2xl sm:text-4xl"></i>
               </span>
             </a>
-            <div className="max-w-[500px]">
+            <div className="max-w-[600px]">
               <p className="font-gt-thin text-white mb-5 sm:mb-10 lg:mb-14">
-                A functional data-intensive web app that provides daily updated
-                fuel prices and exchange rates. Currently leading a team of
+                A functional data-intensive full stack web app that provides daily updated
+                fuel prices and exchange rates. It has a currency converter and
+                a calculator for eaasy currency conversions. I started out as
+                the sole frontend engineer on this project. Currently, I
+                function as the engineering manager, leading a team of 4
                 engineers to build and manage this web app.
               </p>
               <div className="flex flex-wrap gap-2 font-gt-light text-white">

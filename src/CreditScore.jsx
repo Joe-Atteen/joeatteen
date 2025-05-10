@@ -1,30 +1,17 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import creditscore from "./assets/images/creditscore.webp";
 import purple from "./assets/images/purple.webp";
 import yellow from "./assets/images/yellow.webp";
 import orange from "./assets/images/orange.webp";
 import green from "./assets/images/green.webp";
 import Footer from "./Footer";
+import TopNav from "./TopNav";
 
 const Cedirates = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const navigate = useNavigate();
 
   return (
     <div className="max-w-[1300px] mx-auto">
       <div className="py-10">
-        <div className="flex mb-10">
-          <button
-            className="p-0 hover:border-[#1a1a1a] !border-[#1a1a1a] bg-[#1a1a1a]"
-            onClick={() => navigate(-1)}
-          >
-            <i className="fa fa-arrow-left text-xl sm:text-3xl text-white"></i>
-          </button>
-        </div>
+        <TopNav />
         <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full max-w-[950px] mx-auto">
           <div className="flex flex-col">
             <a
