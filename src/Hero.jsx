@@ -48,7 +48,7 @@ const Hero = () => {
                 isVisible ? "opacity-100" : "opacity-0"
               } transition-opacity duration-1000 delay-700 ease-in-out`}
             >
-              User Experience (UX) • Frontend Engineer
+              Software • User Experience (UX) Engineer
             </h6>
           </div>
         </div>

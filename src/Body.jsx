@@ -82,7 +82,7 @@ const Body = () => {
       <div className="p-5 py-10 sm:p-16 sm:py-20 bg-[#1f1f1f] h-full w-full mb-20">
         <div className="flex flex-col">
           <h3 className="font-gt-medium text-white mb-5 md:w-[80%] xl:w-[65%]">
-            Hi 👋, I&apos;m Joe, a UX and Frontend Engineer based in Ghana.
+            Hi 👋, I&apos;m Joe, a UX and Software Engineer based in Ghana.
           </h3>
           <p className="font-gt-light text-[#c7c7c7]">
             I develop intuitive, high-performance user interfaces that sit at

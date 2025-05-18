@@ -31,12 +31,14 @@ const Cedirates = () => {
             </a>
             <div className="max-w-[600px]">
               <p className="font-gt-thin text-white mb-5 sm:mb-10 lg:mb-14">
-                A functional data-intensive full stack web app that provides daily updated
-                fuel prices and exchange rates. It has a currency converter and
-                a calculator for eaasy currency conversions. I started out as
-                the sole frontend engineer on this project. Currently, I
-                function as the engineering manager, leading a team of 4
-                engineers to build and manage this web app.
+                A robust, data-driven full-stack web application offering daily
+                updates on fuel prices and exchange rates. It features a
+                currency converter and calculator for seamless currency
+                conversions. Initially, I served as the sole frontend engineer
+                on this project. Currently, I lead a team of four engineers as
+                the engineering manager, overseeing the development and
+                maintenance of the platform, which now boasts over 32,000 active
+                monthly users.
               </p>
               <div className="flex flex-wrap gap-2 font-gt-light text-white">
                 <div className="inline-flex p-2 border border-white rounded-lg">
