@@ -37,7 +37,7 @@ const Cedirates = () => {
                 conversions. Initially, I served as the sole frontend engineer
                 on this project. Currently, I lead a team of four engineers as
                 the engineering manager, overseeing the development and
-                maintenance of the platform, which now boasts over 32,000 active
+                maintenance of the platform, which now boasts over 40,000 active
                 monthly users.
               </p>
               <div className="flex flex-wrap gap-2 font-gt-light text-white">
