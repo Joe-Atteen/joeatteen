@@ -1,281 +1,307 @@
-import html from "./assets/images/html.webp";
-import css from "./assets/images/css.webp";
-import js from "./assets/images/js.webp";
-import bootstrap from "./assets/images/bootstrap.webp";
-import tailwind from "./assets/images/tailwind.webp";
-import sass from "./assets/images/sass.webp";
-import typescript from "./assets/images/typescript.webp";
-import vue from "./assets/images/vue.webp";
-import nextjs from "./assets/images/nextjs.webp";
-import react from "./assets/images/react.webp";
-import git from "./assets/images/git.webp";
-import nodejs from "./assets/images/nodejs.webp";
 import { useEffect, useRef, useState } from "react";
 import EmblaCarousel from "./carousel/EmblaCarousel";
-import cedirates from "./assets/images/cedirates.webp";
-import creditscore from "./assets/images/creditscore.webp";
-import tekquest from "./assets/images/tekquest.webp";
-import dev from "./assets/images/dev-portal.webp";
-import hubtel from "./assets/images/hubtel.webp";
+import { projects } from "./data/projectsData";
 
 const OPTIONS = { align: "start" };
 
-const slides = [
-  {
-    image: cedirates,
-    title: "CediRates",
-    link: "/cedirates",
-  },
-  {
-    image: creditscore,
-    title: "myCreditScore",
-    link: "/creditscore",
-  },
-  {
-    image: tekquest,
-    title: "TekQuest",
-    link: "/tekquest",
-  },
-  {
-    image: dev,
-    title: "Dev Portal",
-    link: "/dev-portal",
-  },
-  {
-    image: hubtel,
-    title: "Hubtel Web",
-    link: "/hubtel",
-  },
-];
-
 const Body = () => {
-  const [isBodyVisible, setBodyVisible] = useState(false);
-  const bodyRef = useRef(null);
+  const [visibleSections, setVisibleSections] = useState({
+    about: false,
+    work: false,
+    contact: false,
+  });
+
+  const aboutRef = useRef(null);
+  const workRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    const observerOptions = {
+      rootMargin: "-100px 0px",
+      threshold: 0.2,
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setBodyVisible(true);
+          setVisibleSections((prev) => ({
+            ...prev,
+            [entry.target.id]: true,
+          }));
         }
-      },
-      {
-        rootMargin: "0px 0px -100px 0px", // Adjust as needed
-        threshold: 0.5, // Trigger when 10% of the body is in view
-      }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions
     );
 
-    const currentBodyRef = bodyRef.current;
-    if (currentBodyRef) {
-      observer.observe(currentBodyRef);
-    }
+    const refs = [aboutRef, workRef, contactRef];
+    refs.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
 
     return () => {
-      if (currentBodyRef) {
-        observer.unobserve(currentBodyRef);
-      }
+      refs.forEach((ref) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
     };
   }, []);
 
+  const fadeInClass = "transition-all duration-1000 ease-out";
+
   return (
-    <div id="about" ref={bodyRef} className={isBodyVisible ? "visible" : ""}>
-      <div className="p-5 py-10 sm:p-16 sm:py-20 bg-[#1f1f1f] h-full w-full mb-20">
-        <div className="flex flex-col">
-          <h3 className="font-gt-medium text-white mb-5 md:w-[80%] xl:w-[65%]">
-            Hi 👋, I&apos;m Joe, a UX and Software Engineer based in Ghana.
-          </h3>
-          <p className="font-gt-light text-[#c7c7c7]">
-            I develop intuitive, high-performance user interfaces that sit at
-            the intersection of design and code. With a strong foundation in
-            user experience and frontend architecture, I bring digital products
-            to life through clean, scalable, and maintainable code. <br />
-            <br />I specialize in building modern web experiences using React,
-            Next.js, TypeScript, Tailwind CSS, and various UI framweworks like
-            ShadCN UI, with additional strengths in HTML, CSS, Bootstrap,
-            JavaScript, responsive design and design systems, ensuring
-            consistency and polish across products. I work closely with design
-            teams—often translating Figma files into pixel-perfect, accessible
-            interfaces.
-            <br />
-            <br />
-            On the backend, I have just about enough experience with Node.js to
-            build and integrate APIs, handle data workflows, and support
-            full-stack development when needed.
-            <br />
-            <br /> Whether it&apos;s crafting interactive components, optimizing
-            performance, or improving UX flows, I focus on delivering seamless,
-            user-first experiences.
-            <br />
-            <br /> Let’s build something people love to use.
-          </p>
-        </div>
-      </div>
+    <>
+      {/* About Section */}
+      <section
+        id="about"
+        ref={aboutRef}
+        className={`py-12 md:py-20 ${fadeInClass} ${
+          visibleSections.about
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-20"
+        }`}
+      >
+        <div className="lg:px-6">
+          <div className="flex flex-col">
+            <div className="flex items-center mb-8">
+              <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
+              <span className="text-[#ecc9b0]/80 font-gt-regular text-sm tracking-wider uppercase">
+                About Me
+              </span>
+            </div>
+            <h2 className="font-gt-semibold text-2xl md:text-3xl text-white mb-10 leading-relaxed">
+              UX Engineer & Frontend Developer
+            </h2>
 
-      <div className="p-5 px-4 py-10 sm:p-16 sm:py-20 sm:pb-12 bg-[#1f1f1f] h-full w-full mb-20 ">
-        <div className="flex flex-col">
-          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-4 sm:mb-8 text-center">
-            Latest Work
-          </h2>
-          <p className="font-gt-light text-[#c7c7c7] mb-8 sm:mb-10 md:mb-16 text-center max-w-[820px] mx-auto">
-            A curated selection of projects showcasing my focus on user
-            experience, clean frontend architecture, and responsive design —
-            built for real users and real impact.
-          </p>
-          <div>
-            <EmblaCarousel slides={slides} options={OPTIONS} />
+            <div className="space-y-7 text-lg">
+              <p className="font-gt-light text-[#c7c7c7] leading-loose">
+                Hi 👋, I&apos;m Joe, a UX and Software Engineer based in Ghana.
+                I develop intuitive, high-performance user interfaces that sit
+                at the intersection of design and code. With a strong foundation
+                in user experience and frontend architecture, I bring digital
+                products to life through clean, scalable, and maintainable code.
+              </p>
+
+              <p className="font-gt-light text-[#c7c7c7] leading-loose">
+                I specialize in building modern web experiences using React,
+                Next.js, TypeScript, Tailwind CSS, and various UI frameworks
+                like ShadCN UI. My additional strengths include HTML, CSS,
+                Bootstrap, JavaScript, responsive design and design systems,
+                ensuring consistency and polish across products.
+              </p>
+
+              <p className="font-gt-light text-[#c7c7c7] leading-loose">
+                Working closely with design teams, I often translate Figma files
+                into pixel-perfect, accessible interfaces. On the backend, I
+                have just enough experience with Node.js to build and integrate
+                APIs, handle data workflows, and support full-stack development
+                when needed.
+              </p>
+
+              <p className="font-gt-light text-[#c7c7c7] leading-loose">
+                Whether it&apos;s crafting interactive components, optimizing
+                performance, or improving UX flows, I focus on delivering
+                seamless, user-first experiences. Let&apos;s build something
+                people love to use.
+              </p>
+            </div>
+
+            <div className="mt-14 flex flex-col sm:flex-row gap-6">
+              <a
+                href="#contact"
+                className="flex items-center gap-2 group text-white hover:text-[#ecc9b0] font-gt-light px-0 py-1 transition-all duration-300 border-b border-transparent hover:border-[#ecc9b0]/30"
+              >
+                <i className="fas fa-envelope text-sm"></i>
+                <span>Get in Touch</span>
+                <i className="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform text-sm ml-1"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="p-5 py-10 sm:p-16 sm:py-20 bg-[#1f1f1f] h-full w-full mb-20">
-        <div className="flex flex-col">
-          <h2 className="font-gt-bold uppercase text-[#ecc9b0] mb-8 sm:mb-10 md:mb-16 text-center">
-            Toolbox
-          </h2>
-          <div className="flex flex-wrap gap-1 sm:gap-6 justify-center">
-            <img
-              src={html}
-              alt="html"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={css}
-              alt="css"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={js}
-              alt="js"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={bootstrap}
-              alt="bootstrap"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={tailwind}
-              alt="tailwind"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={sass}
-              alt="sass"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={typescript}
-              alt="typescript"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={vue}
-              alt="vue"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={react}
-              alt="react"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={nextjs}
-              alt="nextjs"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={git}
-              alt="git"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-            <img
-              src={nodejs}
-              alt="node"
-              className={`w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]`}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="p-5 py-10 sm:p-16 sm:py-20 bg-[#1f1f1f] h-full w-full mb-24 rounded-b-[50px] contact-bg relative overflow-hidden">
-        <div className="z-10">
-          <div className="flex flex-col mb-20">
-            <h3 className="font-gt-bold text-[#ecc9b0] mb-4">
-              So about that new project...
-            </h3>
-            <p className="font-gt-light text-[#c7c7c7]">
-              I am just a text or mail away. Pleased to make your acquiantance
+      {/* Work Section */}
+      <section
+        id="work"
+        ref={workRef}
+        className={`py-12 md:py-20 ${fadeInClass} ${
+          visibleSections.work
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-20"
+        }`}
+      >
+        <div className="lg:px-6">
+          <div className="flex flex-col mb-16">
+            <div className="flex items-center mb-8">
+              <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
+              <span className="text-[#ecc9b0]/80 font-gt-regular text-sm tracking-wider uppercase">
+                Portfolio
+              </span>
+            </div>
+            <h2 className="font-gt-semibold text-2xl md:text-3xl text-white mb-5 leading-relaxed">
+              Latest Work
+            </h2>
+            <p className="font-gt-light text-[#c7c7c7] max-w-2xl sm:text-lg leading-relaxed">
+              A curated selection of projects showcasing my focus on user
+              experience, clean frontend architecture, and responsive design —
+              built for real users and real impact.
             </p>
           </div>
-          <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-10 py-14 border-[#ecc9bo] border-t border-b">
-            <div className="flex flex-col items-center sm:items-start gap-5">
-              <div className="flex items-center gap-2">
-                <i
-                  className="fas fa-phone-alt text-white"
-                  aria-hidden="true"
-                ></i>
-                <a
-                  href="tel: +233209119731"
-                  className="text-[#c7c7c7] font-gt-light text-lg"
-                >
-                  +233 20 911 9731
+
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-20 mb-24">
+            {projects
+              .filter((project) =>
+                ["cedirates", "creditscore", "dev-portal"].includes(project.id)
+              )
+              .map((project, index) => (
+                <a key={index} href={project.link} className="group">
+                  <div className="h-64 overflow-hidden mb-6 rounded-md relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-0 right-0 m-3 w-10 h-10 bg-[#ecc9b0]/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-50">
+                      <i className="fa fa-arrow-right text-black/80 text-xs"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-gt-regular text-lg text-white mb-2 group-hover:text-[#ecc9b0] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="font-gt-light text-[#c7c7c7] mb-4 leading-relaxed">
+                      {project.shortDescription}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="text-[#c7c7c7]/70 px-0 py-0 text-xs font-gt-light"
+                        >
+                          <span className="me-1">{tech}</span>
+                          {i < project.technologies.length - 1 ? " • " : ""}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 text-[#ecc9b0]/80 mt-3">
+                      <span className="font-gt-light text-sm group-hover:text-[#ecc9b0]">
+                        View Project
+                      </span>
+                      <i className="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                  </div>
                 </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <i
-                  className="fas fa-envelope text-white"
-                  aria-hidden="true"
-                ></i>
-                <a
-                  href="mailto:joeyatteen@gmail.com"
-                  className="text-[#c7c7c7] font-gt-light text-lg"
-                >
-                  joeyatteen@gmail.com
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="https://github.com/Joe-Atteen" target="_blank">
-                <i className="fab fa-github text-[50px]" aria-hidden="true"></i>
+              ))}
+          </div>
+
+          <div className="pt-6 border-t border-[#333]/30">
+            <h4 className="font-gt-light text-lg md:text-xl text-white mb-10">
+              All Projects
+            </h4>
+            <EmblaCarousel slides={projects} options={OPTIONS} />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section
+        id="contact"
+        ref={contactRef}
+        className={`py-12 md:py-20 relative overflow-hidden border-b border-[#333]/30 ${fadeInClass} ${
+          visibleSections.contact
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-20"
+        }`}
+      >
+        <div className="lg:px-6 relative z-10">
+          <div className="flex flex-col mb-16">
+            <h2 className="font-gt-semibold text-2xl md:text-3xl text-white mb-5 leading-relaxed text-center">
+              Let&apos;s Work Together
+            </h2>
+            <p className="font-gt-light text-[#c7c7c7] max-w-2xl sm:text-lg leading-relaxed text-center mx-auto">
+              Whether you have a project in mind, a question about my work, or
+              just want to say hello, I&apos;m just a message away. Let&apos;s
+              create something amazing.
+            </p>
+          </div>
+
+          <div className="w-full max-w-md mx-auto">
+            <h4 className="text-center font-gt-medium text-white mb-6">
+              Connect with me
+            </h4>
+            <div className="flex items-center justify-center gap-3 lg:gap-8">
+              <a
+                href="https://github.com/Joe-Atteen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="GitHub"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-[#ecc9b0]/40 transition-all duration-300">
+                  <i className="fab fa-github text-xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+                </div>
               </a>
-              <a href="https://www.linkedin.com/in/joe-atteen/" target="_blank">
-                <i
-                  className="fab fa-linkedin text-[50px]"
-                  aria-hidden="true"
-                ></i>
+              <a
+                href="https://www.linkedin.com/in/joe-atteen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="LinkedIn"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-[#ecc9b0]/40 transition-all duration-300">
+                  <i className="fab fa-linkedin-in text-xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+                </div>
               </a>
-              <a href="https://twitter.com/joe_atteen" target="_blank">
-                <i
-                  className="fab fa-x-twitter text-[50px]"
-                  aria-hidden="true"
-                ></i>
+              <a
+                href="https://twitter.com/joe_atteen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="Twitter"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-[#ecc9b0]/40 transition-all duration-300">
+                  <i className="fab fa-x-twitter text-xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+                </div>
               </a>
-              <a href="https://wa.me/233209119731" target="_blank">
-                <i
-                  className="fab fa-whatsapp text-[50px]"
-                  aria-hidden="true"
-                ></i>
+              <a
+                href="https://wa.me/233209119731"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="Resume"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-[#ecc9b0]/40 transition-all duration-300">
+                  <i className="fab fa-whatsapp text-xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+                </div>
               </a>
-              <a href="/atteen-resume.pdf" target="_blank">
-                <i
-                  className="	fa fa-file-pdf-o text-[48px]"
-                  aria-hidden="true"
-                ></i>
+              <a
+                href="mailto:joeyatteen@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="Resume"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#222] border border-[#333] flex items-center justify-center group-hover:border-[#ecc9b0]/40 transition-all duration-300">
+                  <i className="fa fa-envelope text-xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+                </div>
               </a>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="pb-8">
-        <h5 className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a] mb-3">
-          COOKED WITH REACT & TAILWINDCSS
-        </h5>
-        <h5 className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a]">
-          LAST UPDATED 10•4•2025
-        </h5>
-      </div>
-    </div>
+        {/* Background decorations - subtle */}
+        <div className="absolute top-0 right-0 h-64 w-64 bg-[#ecc9b0]/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 h-96 w-96 bg-[#ecc9b0]/3 rounded-full blur-3xl"></div>
+      </section>
+    </>
   );
 };
 

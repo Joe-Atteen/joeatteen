@@ -1,24 +1,28 @@
-import Cedirates from "./Cedirates";
-import CreditScore from "./CreditScore";
-import DevPortal from "./DevPortal";
-import Hubtel from "./Hubtel";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Home from "./Home";
 import Resume from "./Resume";
-import TekQuest from "./TekQuest";
+import ProjectDetail from "./components/ProjectDetail";
+
+// This component is needed to access the location for AnimatePresence
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/:slug" element={<ProjectDetail />} />
+        <Route path="resume" element={<Resume />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="cedirates" element={<Cedirates />} />
-        <Route path="creditscore" element={<CreditScore />} />
-        <Route path="tekquest" element={<TekQuest />} />
-        <Route path="dev-portal" element={<DevPortal />} />
-        <Route path="hubtel" element={<Hubtel />} />
-        <Route path="resume" element={<Resume />} />
-      </Routes>
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }

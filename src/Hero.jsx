@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import hero from "./assets/images/hero-img-2.webp";
+import { useState, useEffect, useRef } from "react";
+import hero from "./assets/images/joe.webp";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -12,59 +13,153 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const scrollPosition = window.scrollY;
+        const heroElement = heroRef.current;
+        heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+
+        // Adjust opacity for fade-out effect
+        const opacity = 1 - scrollPosition / 600;
+        heroElement.style.opacity = opacity > 0 ? opacity : 0;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="mb-[15vh] lg:mb-[20vh]">
+    <div
+      id="home"
+      className="min-h-dvh relative overflow-hidden flex items-center justify-center hero"
+    >
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#151515] to-[#1a1a1a]"></div>
+
+      {/* Enhanced animated background elements */}
+      {/* <div className="absolute w-[500px] h-[500px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl -top-20 -right-20 animate-pulse"></div>
       <div
-        className={`h-[300px] max-[730px]:h-[230px] max-[480px]:h-[180px] w-full bg-[#2e2e2e] rounded-t-[50px] relative hero-bg mb-48 shadow-xl ${
+        className="absolute w-[600px] h-[600px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl -bottom-40 -left-20 animate-pulse"
+        style={{ animationDuration: "15s" }}
+      ></div> */}
+      {/* <div
+        className="absolute w-[400px] h-[400px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl top-40 right-40 animate-float"
+        style={{ animationDuration: "2s" }}
+      ></div> */}
+      {/* <div className="absolute w-64 h-64 rotate-45 rounded-3xl border border-[#ecc9b0]/10 top-1/4 left-1/4 animate-spin-slow"></div> */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div>
+
+      {/* Hero content container with parallax */}
+      <div
+        ref={heroRef}
+        className={`max-w-[1300px] w-full mx-auto px-4 z-10 flex flex-col items-center justify-center text-center ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        } transition-transform duration-1000 ease-in-out`}
+        } transition-all duration-1000 ease-in-out`}
       >
-        <div className="absolute inset-0 bg-[#1f1f1f] opacity-85 z-0 rounded-t-[50px]"></div>
-        <div className="absolute bottom-0 left-[50%] grayscale-[.1] transform -translate-x-[50%] h-[400px] w-[500px] max-[730px]:h-[300px] max-[730px]:w-[400px] max-[480px]:h-[240px] max-[480px]:w-[300px] max-[330px]:w-[90%]">
-          <img
-            src={hero}
-            alt="Profile"
-            className="w-full h-full object-cover z-10"
-          />
-        </div>
-        <div className="absolute top-[236px] max-[1279px]:top-[256px] max-[900px]:top-[264px] max-[730px]:top-[206px] max-[480px]:top-[156px] left-[50.3%] -translate-x-[50%]">
-          <div className="inline-flex flex-col justify-center p-0">
-            <h1
-              className={`font-gt-bold text-[10rem] text-center text-white leading-[8rem] text-nowrap`}
-            >
-              <span
-                style={{
-                  background:
-                    "linear-gradient(to bottom, white 50%, #ecc9b0 50%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                JOE E. ATTEEN
-              </span>
-            </h1>
-            <h6
-              className={`font-gt-light text-center min-[500px]:text-start text-[#c7c7c7] text-[2rem] ${
-                isVisible ? "opacity-100" : "opacity-0"
-              } transition-opacity duration-1000 delay-700 ease-in-out`}
-            >
-              Software • User Experience (UX) Engineer
-            </h6>
+        <div className="mb-8 relative group">
+          <div className="absolute inset-0 bg-black/10 rounded-full blur-md opacity-50 group-hover:opacity-70 transition-opacity duration-300 animate-rotate-slow"></div>
+          <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] mx-auto rounded-full border-4 border-[#ecc9b0] p-2 shadow-xl shadow-[#ecc9b0]/20 relative z-10 transition-all duration-300 group-hover:border-[#e3a477] overflow-hidden">
+            <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity z-20 rounded-full"></div>
+            <img
+              src={hero}
+              alt="Joe Atteen"
+              className="w-full h-full object-cover rounded-full transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <div className="absolute h-14 w-14 bg-gradient-to-br from-[#ecc9b0] to-[#e3a477] rounded-full bottom-0 -right-2 sm:right-auto sm:left-[67%] flex items-center justify-center z-20 shadow-lg">
+            <span className="text-black text-xl animate-wave">👋</span>
           </div>
         </div>
-      </div>
-      <div className={`flex justify-center`}>
-        <a href="#about">
-          <div
-            className={`${
+
+        <h1 className="font-gt-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 tracking-tight relative">
+          <span className="inline-block relative overflow-hidden">
+            <span className="inline-block">JOE E. ATTEEN</span>
+            <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#ecc9b0]/50 to-transparent"></span>
+          </span>
+        </h1>
+
+        <div className="mb-6">
+          <h2
+            className={`font-gt-medium text-xl sm:text-2xl md:text-3xl text-[#c7c7c7] ${
               isVisible ? "opacity-100" : "opacity-0"
-            } transition-opacity duration-1000 delay-1000 ease-in-out`}
+            } transition-opacity duration-1000 delay-700 ease-in-out flex items-center justify-center gap-2`}
           >
-            <span className="mouse">
-              <span className="wheel"></span>
+            <span>Software</span>
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ecc9b0] to-[#e3a477] animate-pulse"></span>
+            <span className="text-[#ecc9b0] relative">
+              UI Engineer
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#ecc9b0]/20"></span>
             </span>
-          </div>
-        </a>
+          </h2>
+        </div>
+
+        <p
+          className={`max-w-xl mx-auto text-[#a7a7a7] font-gt-light text-lg mb-6 relative ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          } transition-all duration-1000 delay-500 ease-in-out`}
+        >
+          <span className="">
+            I craft intuitive and high-performance user interfaces that bridge
+            the gap between design and technology.
+            <span className="absolute -bottom-4 left-0 w-1/4 h-[1px] bg-gradient-to-r from-[#ecc9b0] to-transparent"></span>
+            <span className="absolute -bottom-4 right-0 w-1/4 h-[1px] bg-gradient-to-l from-[#ecc9b0] to-transparent"></span>
+          </span>
+        </p>
+
+        <div
+          className={`flex items-center justify-center gap-4 relative ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          } transition-all duration-1000 delay-700 ease-in-out`}
+        >
+          <a
+            href="https://github.com/joeatteen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-full bg-[#222] border border-[#333] flex items-center justify-center h-[50px] w-[50px] transition-all duration-300 hover:scale-110 hover:border-[#ecc9b0]/40"
+            aria-label="GitHub"
+          >
+            <i className="fab fa-github text-[#c7c7c7] group-hover:text-[#ecc9b0] text-xl transition-colors"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/joeatteen/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-full bg-[#222] border border-[#333] flex items-center justify-center h-[50px] w-[50px] transition-all duration-300 hover:scale-110 hover:border-[#ecc9b0]/40"
+            aria-label="LinkedIn"
+          >
+            <i className="fab fa-linkedin-in text-[#c7c7c7] group-hover:text-[#ecc9b0] text-xl transition-colors"></i>
+          </a>
+          <a
+            href="https://x.com/joeatteen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-full bg-[#222] border border-[#333] flex items-center justify-center h-[50px] w-[50px] transition-all duration-300 hover:scale-110 hover:border-[#ecc9b0]/40"
+            aria-label="X (Twitter)"
+          >
+            <i className="fab fa-x-twitter text-[#c7c7c7] group-hover:text-[#ecc9b0] text-xl transition-colors"></i>
+          </a>
+          <a
+            href="https://wa.me/233209119731"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-full bg-[#222] border border-[#333] flex items-center justify-center h-[50px] w-[50px] transition-all duration-300 hover:scale-110 hover:border-[#ecc9b0]/40"
+            aria-label="Resume"
+          >
+            <i className="fab fa-whatsapp text-[#c7c7c7] group-hover:text-[#ecc9b0] text-xl transition-colors"></i>
+          </a>
+          <a
+            href="mailto:contact@joeatteen.com"
+            className="group relative rounded-full bg-[#222] border border-[#333] flex items-center justify-center h-[50px] w-[50px] transition-all duration-300 hover:scale-110 hover:border-[#ecc9b0]/40"
+            aria-label="Email"
+          >
+            <i className="fas fa-envelope text-[#c7c7c7] group-hover:text-[#ecc9b0] text-xl transition-colors"></i>
+          </a>
+        </div>
       </div>
     </div>
   );

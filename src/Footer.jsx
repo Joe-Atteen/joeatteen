@@ -1,80 +1,38 @@
-import { Link } from "react-router-dom";
-
 const Footer = () => {
-  const handleGoHome = () => {
+  const currentYear = new Date().getFullYear();
+
+  const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <>
-      <div className="contact-bg relative overflow-hidden mb-10">
-        <div className="z-10">
-          <div className="border-[#404040] border-t border-b py-10 flex justify-between items-start max-md:flex-col gap-10 md:gap-20 px-3 sm:px-5">
-            <Link
-              to="/"
-              onClick={handleGoHome}
-              className="uppercase font-gt-semibold text-[20px] text-nowrap"
-            >
-              Go back home
-            </Link>
-            <div className="flex flex-col gap-5">
-              <h3 className="font-gt-ultrabold text-nowrap text-white">
-                All Projects
-              </h3>
-              <div className="flex flex-wrap gap-4 font-gt-medium">
-                <Link to="/cedirates">
-                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
-                    CediRates
-                    <i className="fa fa-arrow-right"></i>
-                  </div>
-                </Link>
-                <Link to="/creditscore">
-                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
-                    myCreditScore
-                    <i className="fa fa-arrow-right"></i>
-                  </div>
-                </Link>
-                <Link to="/tekquest">
-                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
-                    TekQuest
-                    <i className="fa fa-arrow-right"></i>
-                  </div>
-                </Link>
-                <Link to="/dev-portal">
-                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
-                    Developers Portal
-                    <i className="fa fa-arrow-right"></i>
-                  </div>
-                </Link>
-                <Link to="/hubtel">
-                  <div className="inline-flex items-center gap-2 p-2 px-4 border border-white rounded-lg">
-                    Hubtel Web
-                    <i className="fa fa-arrow-right"></i>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
+    <footer className="bg-[#1a1a1a] py-12 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30"></div>
+
+      <div className="max-w-[1300px] mx-auto lg:px-6">
+        <div className="flex flex-col items-center justify-center mb-12 relative">
+          <button
+            onClick={handleScrollToTop}
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-[#222] border border-[#333] mb-6 hover:bg-[#ecc9b0]/10 hover:border-[#ecc9b0]/30 transition-all duration-300 group"
+            aria-label="Back to top"
+          >
+            <i className="fas fa-arrow-up text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors"></i>
+          </button>
+        </div>
+
+        <div className="h-px bg-[#333] w-full max-w-xs mx-auto mb-8"></div>
+
+        <div className="flex flex-col items-center">
+          <p className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a] mb-2">
+            CRAFTED WITH REACT & TAILWIND CSS
+          </p>
+          <p className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a]">
+            © {currentYear} JOE ATTEEN • LAST UPDATED 15•6•2025
+          </p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-4 pb-10">
-        <a href="https://github.com/Joe-Atteen" target="_blank">
-          <i className="fab fa-github text-[30px]" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/joe-atteen/" target="_blank">
-          <i className="fab fa-linkedin text-[30px]" aria-hidden="true"></i>
-        </a>
-        <a href="https://twitter.com/joe_atteen" target="_blank">
-          <i className="fab fa-x-twitter text-[30px]" aria-hidden="true"></i>
-        </a>
-        <a href="https://wa.me/233209119731" target="_blank">
-          <i className="fab fa-whatsapp text-[30px]" aria-hidden="true"></i>
-        </a>
-        <a href="/atteen-resume.pdf" target="_blank">
-          <i className="	fa fa-file-pdf-o text-[30px]" aria-hidden="true"></i>
-        </a>
-      </div>
-    </>
+    </footer>
   );
 };
 
