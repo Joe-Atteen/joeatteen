@@ -105,7 +105,7 @@ const Hero = () => {
         >
           <span className="">
             I craft intuitive and high-performance user interfaces that bridge
-            the gap between design and technology.
+            the gap between design and engineering.
             <span className="absolute -bottom-4 left-0 w-1/4 h-[1px] bg-gradient-to-r from-[#ecc9b0] to-transparent"></span>
             <span className="absolute -bottom-4 right-0 w-1/4 h-[1px] bg-gradient-to-l from-[#ecc9b0] to-transparent"></span>
           </span>

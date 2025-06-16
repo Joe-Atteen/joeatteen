@@ -83,7 +83,7 @@ const Body = () => {
               <p className="font-gt-light text-[#c7c7c7] leading-loose">
                 Hi 👋, I&apos;m Joe, a UX and Software Engineer based in Ghana.
                 I develop intuitive, high-performance user interfaces that sit
-                at the intersection of design and code. With a strong foundation
+                at the intersection of design and engineering. With a strong foundation
                 in user experience and frontend architecture, I bring digital
                 products to life through clean, scalable, and maintainable code.
               </p>
