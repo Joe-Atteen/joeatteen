@@ -81,34 +81,43 @@ const Body = () => {
 
             <div className="space-y-7 text-lg">
               <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                Hi 👋, I&apos;m Joe, a UX and Software Engineer based in Ghana.
-                I develop intuitive, high-performance user interfaces that sit
-                at the intersection of design and engineering. With a strong foundation
-                in user experience and frontend architecture, I bring digital
-                products to life through clean, scalable, and maintainable code.
+                Hi there 👋 I&apos;m Joe—part pixel perfectionist, part code
+                poet, and full-time frontend enthusiast based in Ghana. When
+                I&apos;m not transforming caffeine into beautiful interfaces,
+                I&apos;m busy making sure users don&apos;t throw their devices
+                out the window in frustration. My superpower? Turning
+                designers&apos; wildest dreams into responsive realities without
+                breaking a sweat (okay, maybe just a little sweat).
               </p>
 
               <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                I specialize in building modern web experiences using React,
-                Next.js, TypeScript, Tailwind CSS, and various UI frameworks
-                like ShadCN UI. My additional strengths include HTML, CSS,
-                Bootstrap, JavaScript, responsive design and design systems,
-                ensuring consistency and polish across products.
+                My toolkit includes React (we&apos;re best friends), Next.js
+                (for when I want to show off), TypeScript (because I enjoy
+                arguing with my code), and Tailwind CSS (the fashion designer of
+                CSS frameworks). I have a love affair with ShadCN UI and a
+                long-term relationship with responsive design. If there&apos;s a
+                pixel out of place, I&apos;ll find it—probably at 2 AM while
+                muttering about CSS specificity.
               </p>
 
               <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                Working closely with design teams, I often translate Figma files
-                into pixel-perfect, accessible interfaces. On the backend, I
-                have just enough experience with Node.js to build and integrate
-                APIs, handle data workflows, and support full-stack development
-                when needed.
+                I speak fluent Figma and can translate it into code with the
+                precision of a seasoned diplomat. My secret talent? Making
+                developers and designers play nice together. On the backend
+                side, I know just enough Node.js to be dangerous—or helpful,
+                depending on who you ask. I&apos;ve yet to meet an API I
+                couldn&apos;t befriend or a data workflow I couldn&apos;t
+                streamline.
               </p>
 
               <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                Whether it&apos;s crafting interactive components, optimizing
-                performance, or improving UX flows, I focus on delivering
-                seamless, user-first experiences. Let&apos;s build something
-                people love to use.
+                When I&apos;m not obsessing over component architecture or
+                animation performance, you might find me explaining to friends
+                why that website they just showed me has terrible UX (I&apos;m
+                super fun at parties, I promise). Ready to create something that
+                makes users say &quot;Wow&quot; instead of &quot;How&quot;?
+                Let&apos;s build something remarkable together—bugs not
+                included.
               </p>
             </div>
 

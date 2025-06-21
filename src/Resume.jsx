@@ -281,10 +281,12 @@ const Resume = () => {
               <li className="leading-tight list">Sass</li>
               <li className="leading-tight list">Tailwind</li>
               <li className="leading-tight list">React</li>
+              <li className="leading-tight list">Vue</li>
               <li className="leading-tight list">TypeScript</li>
               <li className="leading-tight list">Next.js</li>
               <li className="leading-tight list">Node.js</li>
               <li className="leading-tight list">Redux</li>
+              <li className="leading-tight list">Supabase</li>
             </ul>
           </div>
 
