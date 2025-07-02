@@ -131,7 +131,8 @@ const BlogSection = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const apiBaseUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const apiBaseUrl =
+    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app/";
 
   useEffect(() => {
     const fetchPosts = async () => {

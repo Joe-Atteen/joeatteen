@@ -113,7 +113,8 @@ const BlogPostDetail = () => {
   const [error, setError] = useState(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  const apiBaseUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const apiBaseUrl =
+    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app/";
 
   useEffect(() => {
     const fetchPostDetails = async () => {
