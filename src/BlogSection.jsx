@@ -133,6 +133,8 @@ const BlogSection = () => {
 
   const apiBaseUrl =
     import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app/";
+  
+    console.log("API Base URL:", apiBaseUrl);
 
   useEffect(() => {
     const fetchPosts = async () => {
