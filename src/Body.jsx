@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import EmblaCarousel from "./carousel/EmblaCarousel";
 import { projects } from "./data/projectsData";
+import BlogSection from "./BlogSection";
 
 const OPTIONS = { align: "start" };
 
@@ -57,96 +58,18 @@ const Body = () => {
 
   return (
     <>
-      {/* About Section */}
-      <section
-        id="about"
-        ref={aboutRef}
-        className={`py-12 md:py-20 ${fadeInClass} ${
-          visibleSections.about
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-20"
-        }`}
-      >
-        <div className="lg:px-6">
-          <div className="flex flex-col">
-            <div className="flex items-center mb-8">
-              <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
-              <span className="text-[#ecc9b0]/80 font-gt-regular text-sm tracking-wider uppercase">
-                About Me
-              </span>
-            </div>
-            <h2 className="font-gt-semibold text-2xl md:text-3xl text-white mb-10 leading-relaxed">
-              UX Engineer & Frontend Developer
-            </h2>
-
-            <div className="space-y-7 text-lg">
-              <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                Hi there 👋 I&apos;m Joe—part pixel perfectionist, part code
-                poet, and full-time frontend enthusiast based in Ghana. When
-                I&apos;m not transforming caffeine into beautiful interfaces,
-                I&apos;m busy making sure users don&apos;t throw their devices
-                out the window in frustration. My superpower? Turning
-                designers&apos; wildest dreams into responsive realities without
-                breaking a sweat (okay, maybe just a little sweat).
-              </p>
-
-              <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                My toolkit includes React (we&apos;re best friends), Next.js
-                (for when I want to show off), TypeScript (because I enjoy
-                arguing with my code), and Tailwind CSS (the fashion designer of
-                CSS frameworks). I have a love affair with ShadCN UI and a
-                long-term relationship with responsive design. If there&apos;s a
-                pixel out of place, I&apos;ll find it—probably at 2 AM while
-                muttering about CSS specificity.
-              </p>
-
-              <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                I speak fluent Figma and can translate it into code with the
-                precision of a seasoned diplomat. My secret talent? Making
-                developers and designers play nice together. On the backend
-                side, I know just enough Node.js to be dangerous—or helpful,
-                depending on who you ask. I&apos;ve yet to meet an API I
-                couldn&apos;t befriend or a data workflow I couldn&apos;t
-                streamline.
-              </p>
-
-              <p className="font-gt-light text-[#c7c7c7] leading-loose">
-                When I&apos;m not obsessing over component architecture or
-                animation performance, you might find me explaining to friends
-                why that website they just showed me has terrible UX (I&apos;m
-                super fun at parties, I promise). Ready to create something that
-                makes users say &quot;Wow&quot; instead of &quot;How&quot;?
-                Let&apos;s build something remarkable together—bugs not
-                included.
-              </p>
-            </div>
-
-            <div className="mt-14 flex flex-col sm:flex-row gap-6">
-              <a
-                href="#contact"
-                className="flex items-center gap-2 group text-white hover:text-[#ecc9b0] font-gt-light px-0 py-1 transition-all duration-300 border-b border-transparent hover:border-[#ecc9b0]/30"
-              >
-                <i className="fas fa-envelope text-sm"></i>
-                <span>Get in Touch</span>
-                <i className="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform text-sm ml-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Work Section */}
       <section
         id="work"
         ref={workRef}
-        className={`py-12 md:py-20 ${fadeInClass} ${
+        className={`py-10 md:py-12 ${fadeInClass} ${
           visibleSections.work
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
         }`}
       >
         <div className="lg:px-6">
-          <div className="flex flex-col mb-16">
+          <div className="flex flex-col mb-8">
             <div className="flex items-center mb-8">
               <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
               <span className="text-[#ecc9b0]/80 font-gt-regular text-sm tracking-wider uppercase">
@@ -164,7 +87,7 @@ const Body = () => {
           </div>
 
           {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-20 mb-24">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-20 mb-24">
             {projects
               .filter((project) =>
                 ["cedirates", "creditscore", "dev-portal"].includes(project.id)
@@ -209,39 +132,36 @@ const Body = () => {
                   </div>
                 </a>
               ))}
-          </div>
+          </div> */}
 
-          <div className="pt-6 border-t border-[#333]/30">
-            <h4 className="font-gt-light text-lg md:text-xl text-white mb-10">
-              All Projects
-            </h4>
-            <EmblaCarousel slides={projects} options={OPTIONS} />
-          </div>
+          <EmblaCarousel slides={projects} options={OPTIONS} />
         </div>
+      </section>
+
+      {/* Blog Section */}
+      <section
+        id="about"
+        ref={aboutRef}
+        className={`py-10 md:py-12 ${fadeInClass} ${
+          visibleSections.about
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-20"
+        }`}
+      >
+        <BlogSection />
       </section>
 
       {/* Contact Section */}
       <section
         id="contact"
         ref={contactRef}
-        className={`py-12 md:py-20 relative overflow-hidden border-b border-[#333]/30 ${fadeInClass} ${
+        className={`py-10 md:py-12 relative overflow-hidden border-b border-[#333]/30 ${fadeInClass} ${
           visibleSections.contact
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
         }`}
       >
-        <div className="lg:px-6 relative z-10">
-          <div className="flex flex-col mb-16">
-            <h2 className="font-gt-semibold text-2xl md:text-3xl text-white mb-5 leading-relaxed text-center">
-              Let&apos;s Work Together
-            </h2>
-            <p className="font-gt-light text-[#c7c7c7] max-w-2xl sm:text-lg leading-relaxed text-center mx-auto">
-              Whether you have a project in mind, a question about my work, or
-              just want to say hello, I&apos;m just a message away. Let&apos;s
-              create something amazing.
-            </p>
-          </div>
-
+        <div className="lg:px-6 relative z-10 md:pt-5">
           <div className="w-full max-w-md mx-auto">
             <h4 className="text-center font-gt-medium text-white mb-6">
               Connect with me

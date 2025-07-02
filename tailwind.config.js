@@ -4,16 +4,18 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'gt-ultralight': ['GT-Walsheim-UltraLight', 'sans-serif'],
-        'gt-thin': ['GT-Walsheim-Thin', 'sans-serif'],
-        'gt-light': ['GT-Walsheim-Light', 'sans-serif'],
-        'gt-regular': ['GT-Walsheim-Regular', 'sans-serif'],
-        'gt-medium': ['GT-Walsheim-Medium', 'sans-serif'],
-        'gt-semibold': ['GT-Walsheim-SemiBold', 'sans-serif'],
-        'gt-bold': ['GT-Walsheim-Bold', 'sans-serif'],
-        'gt-ultrabold': ['GT-Walsheim-UltraBold', 'sans-serif'],
+        "gt-ultralight": ["GT-Walsheim-UltraLight", "sans-serif"],
+        "gt-thin": ["GT-Walsheim-Thin", "sans-serif"],
+        "gt-light": ["GT-Walsheim-Light", "sans-serif"],
+        "gt-regular": ["GT-Walsheim-Regular", "sans-serif"],
+        "gt-medium": ["GT-Walsheim-Medium", "sans-serif"],
+        "gt-semibold": ["GT-Walsheim-SemiBold", "sans-serif"],
+        "gt-bold": ["GT-Walsheim-Bold", "sans-serif"],
+        "gt-ultrabold": ["GT-Walsheim-UltraBold", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Note: line-clamp is now built into Tailwind CSS v3.3+ as the 'line-clamp' utility
+  ],
 };

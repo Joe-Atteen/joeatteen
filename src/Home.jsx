@@ -28,7 +28,7 @@ const Home = () => {
       <PageTransition>
         <Navbar />
         <Hero />
-        <div className="max-w-[1300px] mx-auto px-4">
+        <div className="max-w-[1300px] mx-auto px-4 pt-5 md:pt-10">
           <Body />
         </div>
         <Footer />

@@ -41,17 +41,6 @@ const Hero = () => {
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#151515] to-[#1a1a1a]"></div>
 
-      {/* Enhanced animated background elements */}
-      {/* <div className="absolute w-[500px] h-[500px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl -top-20 -right-20 animate-pulse"></div>
-      <div
-        className="absolute w-[600px] h-[600px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl -bottom-40 -left-20 animate-pulse"
-        style={{ animationDuration: "15s" }}
-      ></div> */}
-      {/* <div
-        className="absolute w-[400px] h-[400px] rounded-full bg-[#ecc9b0]/5 filter blur-3xl top-40 right-40 animate-float"
-        style={{ animationDuration: "2s" }}
-      ></div> */}
-      {/* <div className="absolute w-64 h-64 rotate-45 rounded-3xl border border-[#ecc9b0]/10 top-1/4 left-1/4 animate-spin-slow"></div> */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div>
 
       {/* Hero content container with parallax */}

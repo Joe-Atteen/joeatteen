@@ -113,11 +113,23 @@ const Navbar = () => {
           >
             <a
               href="/atteen-resume.pdf"
-              target="_blank"
-              className="bg-[#ecc9b0] hover:bg-[#e3a477] hover:!text-black text-black font-gt-medium px-5 py-2 rounded-full transition-all duration-300 flex items-center gap-2"
+              className="px-5 py-2 bg-[#ecc9b0] hover:bg-[#e3a477] hover:!text-black text-black font-gt-medium rounded-md transition-all duration-300 inline-flex items-center group"
             >
-              <span>Resume</span>
-              <i className="fas fa-arrow-right text-xs"></i>
+              Resume
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
             </a>
           </div>
 
