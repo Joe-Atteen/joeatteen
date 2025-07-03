@@ -24,32 +24,68 @@ const BlogCard = ({ post }) => {
     });
   };
 
-  // Debug log
-  console.log("BlogCard post object:", post);
-  console.log(
-    "BlogCard post.published_at:",
-    post.published_at,
-    "for post:",
-    post.title
-  );
-
   return (
     <div className="bg-[#252525] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-      {post.image_url ? (
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={post.image_url}
-            alt={post.title}
-            className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60"></div>
-        </div>
-      ) : (
-        <div className="relative h-32 bg-gradient-to-r from-[#2c2c2c] to-[#1c1c1c]">
-          <div className="absolute inset-0 flex items-center justify-center">
+      <Link to={`/blog/${post.slug}`}>
+        {post.image_url ? (
+          <div className="relative h-48 overflow-hidden">
+            <img
+              src={post.image_url}
+              alt={post.title}
+              className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60"></div>
+          </div>
+        ) : (
+          <div className="relative h-32 bg-gradient-to-r from-[#2c2c2c] to-[#1c1c1c]">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-16 w-16 text-[#ecc9b0] opacity-30"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M19.5 14.25v-2.625a3.75 3.75 0 00-3.75-3.75h-1.5A3.75 3.75 0 0010.5 11.25v2.25m0 0c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v6.75c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125v-6.75"
+                />
+              </svg>
+            </div>
+          </div>
+        )}
+
+        <div className="p-6 flex-grow flex flex-col">
+          {post.category && (
+            <div className="mb-2">
+              <span className="bg-[#ecc9b0] text-[#1a1a1a] text-xs font-gt-medium px-2 py-1 rounded-full">
+                {post.category}
+              </span>
+            </div>
+          )}
+
+          <h3 className="text-xl font-gt-semibold text-white mb-3 line-clamp-2">
+            {post.title}
+          </h3>
+
+          <div className="text-xs text-[#a0a0a0] mb-2 font-gt-light">
+            {formatDate(post.published_at || post.created_at) || "No date"}
+          </div>
+
+          <p className="text-[#d1d1d1] text-sm mb-4 line-clamp-3 font-gt-light flex-grow">
+            {post.excerpt}
+          </p>
+
+          <Link
+            to={`/blog/${post.slug}`}
+            className="mt-auto inline-flex items-center text-[#ecc9b0] hover:text-[#e3a477] font-gt-medium text-sm group transition-all"
+          >
+            Read more
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-16 w-16 text-[#ecc9b0] opacity-30"
+              className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -57,56 +93,13 @@ const BlogCard = ({ post }) => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M19.5 14.25v-2.625a3.75 3.75 0 00-3.75-3.75h-1.5A3.75 3.75 0 0010.5 11.25v2.25m0 0c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v6.75c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125v-6.75"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </div>
+          </Link>
         </div>
-      )}
-
-      <div className="p-6 flex-grow flex flex-col">
-        {post.category && (
-          <div className="mb-2">
-            <span className="bg-[#ecc9b0] text-[#1a1a1a] text-xs font-gt-medium px-2 py-1 rounded-full">
-              {post.category}
-            </span>
-          </div>
-        )}
-
-        <h3 className="text-xl font-gt-semibold text-white mb-3 line-clamp-2">
-          {post.title}
-        </h3>
-
-        <div className="text-xs text-[#a0a0a0] mb-2 font-gt-light">
-          {formatDate(post.published_at || post.created_at) || "No date"}
-        </div>
-
-        <p className="text-[#d1d1d1] text-sm mb-4 line-clamp-3 font-gt-light flex-grow">
-          {post.excerpt}
-        </p>
-
-        <Link
-          to={`/blog/${post.slug}`}
-          className="mt-auto inline-flex items-center text-[#ecc9b0] hover:text-[#e3a477] font-gt-medium text-sm group transition-all"
-        >
-          Read more
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </Link>
-      </div>
+      </Link>
     </div>
   );
 };
@@ -133,16 +126,11 @@ const BlogSection = () => {
 
   const apiBaseUrl =
     import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app";
-  
-    console.log("API Base URL:", apiBaseUrl);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        console.log(
-          `Fetching posts from: ${apiBaseUrl}/api/public-posts?page=${page}&limit=3`
-        );
 
         // Try to fetch from the real API first
         try {
@@ -231,15 +219,39 @@ const BlogSection = () => {
           Latest Blog Posts
         </h2>
         <p className="font-gt-light text-[#c7c7c7] max-w-2xl sm:text-lg leading-relaxed">
-          Exploring various topics that focus on tech, the world of work and life in general through my lens.
+          Exploring various topics that focus on tech, the world of work and
+          life in general through my lens.
         </p>
       </div>
 
       {loading && (
-        <div className="flex justify-center items-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ecc9b0]"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+          <div className="bg-[#252525] rounded-xl h-96 w-full relative overflow-hidden shimmer"></div>
+          <div className="bg-[#252525] rounded-xl h-96 w-full relative overflow-hidden shimmer"></div>
+          <div className="bg-[#252525] rounded-xl h-96 w-full relative overflow-hidden shimmer"></div>
         </div>
       )}
+
+      <style>
+        {`
+              .shimmer::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -150px;
+                height: 100%;
+                width: 150px;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(236,201,176,0.15) 50%, rgba(255,255,255,0) 100%);
+                animation: shimmer 1.5s infinite;
+                z-index: 1;
+              }
+              @keyframes shimmer {
+                100% {
+                  left: 100%;
+                }
+              }
+            `}
+      </style>
 
       {error && (
         <div className="bg-[#2a2a2a] border-l-4 border-red-500 p-4 rounded-md max-w-2xl mx-auto">

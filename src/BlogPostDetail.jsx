@@ -540,11 +540,8 @@ Both React and Next.js have their place in modern web development. React offers 
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#1a1a1a]">
         <div className="relative w-16 h-16">
-          <div className="absolute top-0 mt-4 w-16 h-16">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#ecc9b0]"></div>
-          </div>
-          <div className="absolute top-0 mt-4 w-16 h-16 flex justify-center items-center">
-            <span className="text-[#ecc9b0] text-xl">J</span>
+          <div className="absolute top-0 mt-4 w-12 h-12">
+            <div className="animate-spin h-12 w-12 border-4 border-[#ecc9b0] border-t-transparent rounded-full"></div>
           </div>
         </div>
         <p className="mt-6 text-[#a0a0a0] font-gt-light">Loading article...</p>

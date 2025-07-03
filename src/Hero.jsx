@@ -19,7 +19,7 @@ const Hero = () => {
       if (heroRef.current) {
         const scrollPosition = window.scrollY;
         const heroElement = heroRef.current;
-        heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+        heroElement.style.transform = `translateY(${scrollPosition * 0.5}px)`;
 
         // Adjust opacity for fade-out effect
         const opacity = 1 - scrollPosition / 600;
