@@ -114,7 +114,7 @@ const BlogPostDetail = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   const apiBaseUrl =
-    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app/";
+    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app";
 
   useEffect(() => {
     const fetchPostDetails = async () => {

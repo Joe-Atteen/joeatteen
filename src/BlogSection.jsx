@@ -132,7 +132,7 @@ const BlogSection = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   const apiBaseUrl =
-    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app/";
+    import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app";
   
     console.log("API Base URL:", apiBaseUrl);
 
