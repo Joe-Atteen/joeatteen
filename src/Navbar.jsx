@@ -135,7 +135,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden text-white ${
+            className={`md:hidden text-white !bg-transparent ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-10"

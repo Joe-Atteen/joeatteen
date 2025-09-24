@@ -208,7 +208,7 @@ const BlogSection = () => {
 
   return (
     <section className="lg:px-6" id="blog">
-      <div className="flex flex-col mb-16">
+      <div className="flex flex-col mb-8">
         <div className="flex items-center mb-8">
           <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
           <span className="text-[#ecc9b0]/80 font-gt-regular text-sm tracking-wider uppercase">
