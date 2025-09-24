@@ -155,7 +155,7 @@ const Body = () => {
       <section
         id="contact"
         ref={contactRef}
-        className={`py-10 md:py-12 relative overflow-hidden border-b border-[#333]/30 ${fadeInClass} ${
+        className={`py-10 md:py-12 relative overflow-hidden ${fadeInClass} ${
           visibleSections.contact
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
@@ -225,10 +225,6 @@ const Body = () => {
             </div>
           </div>
         </div>
-
-        {/* Background decorations - subtle */}
-        <div className="absolute top-0 right-0 h-64 w-64 bg-[#ecc9b0]/3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 h-96 w-96 bg-[#ecc9b0]/3 rounded-full blur-3xl"></div>
       </section>
     </>
   );

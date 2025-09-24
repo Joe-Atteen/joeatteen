@@ -6,7 +6,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] py-12 relative overflow-hidden">
+    <footer className="bg-[#1a1a1a] py-12 border-t border-[#333]/30 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30"></div>
 
@@ -28,7 +28,7 @@ const Footer = () => {
             CRAFTED WITH REACT & TAILWIND CSS
           </p>
           <p className="font-gt-thin text-center text-[.75rem] tracking-[.3em] text-[#7a7a7a]">
-            © {currentYear} JOE ATTEEN 
+            © {currentYear} JOE ATTEEN
           </p>
         </div>
       </div>
