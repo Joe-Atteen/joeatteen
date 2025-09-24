@@ -1,0 +1,280 @@
+/* Prose styles for HTML content rendering */
+.prose-content {
+  color: #e1e1e1;
+  line-height: 1.7;
+}
+
+.prose-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.prose-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 1.25rem 0 0.75rem 0;
+}
+
+.prose-content h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: white;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.prose-content p {
+  margin: 1rem 0;
+  color: #e1e1e1;
+  line-height: 1.7;
+}
+
+.prose-content a {
+  color: #ecc9b0;
+  text-decoration: underline;
+}
+
+.prose-content a:hover {
+  color: #e3a477;
+}
+
+.prose-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.prose-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.prose-content li {
+  margin-bottom: 0.5rem;
+  color: #e1e1e1;
+}
+
+.prose-content blockquote {
+  border-left: 4px solid #ecc9b0;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+  color: #d1d1d1;
+  background: #252525;
+  padding: 1rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.prose-content code {
+  background: #333;
+  color: #ecc9b0;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: "Courier New", monospace;
+}
+
+.prose-content pre {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #333;
+}
+
+.prose-content pre code {
+  background: transparent;
+  padding: 0;
+  color: white;
+  font-family: "Courier New", monospace;
+}
+
+/* Syntax highlighter overrides */
+.prose-content .hljs,
+.prose-content .language-javascript,
+.prose-content .language-js,
+.prose-content .language-jsx,
+.prose-content .language-typescript,
+.prose-content .language-ts,
+.prose-content .language-tsx,
+.prose-content .language-html,
+.prose-content .language-css,
+.prose-content .language-python,
+.prose-content .language-bash,
+.prose-content .language-json {
+  background: #1e1e1e !important;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Ensure syntax highlighter container fits properly */
+.prose-content div[data-language] {
+  margin: 1rem 0;
+}
+
+.prose-content div[data-language] pre {
+  margin: 0;
+  border-radius: 0.375rem;
+}
+
+/* Style for React Syntax Highlighter */
+.prose-content .react-syntax-highlighter-container {
+  margin: 1rem 0;
+}
+
+.prose-content .react-syntax-highlighter-container pre {
+  margin: 0 !important;
+  padding: 1rem !important;
+  background: #1e1e1e !important;
+  border: 1px solid #333;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Override any default syntax highlighter styles */
+.prose-content pre[class*="language-"] {
+  background: #1e1e1e !important;
+  border: 1px solid #333;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.prose-content code[class*="language-"] {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Processed HTML code blocks */
+.prose-content .syntax-highlight-container {
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.prose-content .code-header {
+  background: #2d2d2d;
+  border-bottom: 1px solid #444;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.prose-content .copy-code-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #333;
+  color: #e1e1e1;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+.prose-content .group:hover .copy-code-btn {
+  opacity: 1;
+}
+
+.prose-content .copy-code-btn:hover {
+  background: #444;
+}
+
+.prose-content .syntax-highlight {
+  background: #1e1e1e;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #333;
+  font-family: "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.prose-content .code-block {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #333;
+}
+
+.prose-content .code-block code {
+  background: transparent !important;
+  color: #f8f8f2 !important;
+  padding: 0 !important;
+  font-family: "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.prose-content strong {
+  font-weight: 600;
+  color: white;
+}
+
+.prose-content em {
+  font-style: italic;
+  color: #f1f1f1;
+}
+
+.prose-content img {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.prose-content hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 2rem 0;
+}
+
+.prose-content table {
+  min-width: 100%;
+  border: 1px solid #333;
+  margin: 1.5rem 0;
+}
+
+.prose-content th {
+  border: 1px solid #333;
+  padding: 0.5rem 1rem;
+  background: #252525;
+  color: white;
+  font-weight: 500;
+}
+
+.prose-content td {
+  border: 1px solid #333;
+  padding: 0.5rem 1rem;
+  color: #e1e1e1;
+}

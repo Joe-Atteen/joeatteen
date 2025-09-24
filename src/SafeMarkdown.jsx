@@ -1,28 +1,58 @@
-// SafeMarkdown.jsx
-import { useState } from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
-import SimpleBlogRenderer from "./SimpleBlogRenderer";
+import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
+import CopyableCodeBlock from "./CopyableCodeBlock";
+import "./prose.css";
 
-/**
- * A safe wrapper around ReactMarkdown that falls back to a simpler renderer
- * if ReactMarkdown throws an error
- */
-const SafeMarkdown = ({ children, components }) => {
-  const [hasError, setHasError] = useState(false);
+const SafeMarkdown = ({ children, components = {} }) => {
+  // Check if content is HTML
+  const isHTML = children && children.includes("<p>");
 
-  if (hasError) {
-    console.log("Using fallback renderer due to ReactMarkdown error");
-    return <SimpleBlogRenderer content={children} />;
+  // Default components with code block handling
+  const defaultComponents = {
+    code({ className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || "");
+      const isInline = !match && !String(children).includes("\n");
+
+      return !isInline && match ? (
+        <CopyableCodeBlock className={className}>
+          {String(children).replace(/\n$/, "")}
+        </CopyableCodeBlock>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    },
+  };
+
+  const mergedComponents = { ...defaultComponents, ...components };
+
+  // If HTML, render directly
+  if (isHTML) {
+    return (
+      <div
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
+    );
   }
 
-  try {
-    return <ReactMarkdown components={components}>{children}</ReactMarkdown>;
-  } catch (error) {
-    console.error("Error rendering markdown:", error);
-    setHasError(true);
-    return <SimpleBlogRenderer content={children} />;
+  if (!children) {
+    return <div>No content</div>;
   }
+
+  return (
+    <div className="prose prose-lg max-w-none">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkBreaks]}
+        components={mergedComponents}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
+  );
 };
 
 SafeMarkdown.propTypes = {

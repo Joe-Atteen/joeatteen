@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom"; // If using React Router
 import PropTypes from "prop-types";
 import SafeMarkdown from "./SafeMarkdown";
+import CopyableCodeBlock from "./CopyableCodeBlock";
+import "./prose.css";
 
 // Reusable components
 const BackToTop = () => (
@@ -105,6 +107,112 @@ ShareButton.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
+// Function to get related posts based on tags and category
+const getRelatedPosts = (currentPost, currentSlug) => {
+  // Mock posts data for related posts functionality
+  const allPosts = [
+    {
+      slug: "react-hooks",
+      title: "Understanding React Hooks: A Comprehensive Guide",
+      excerpt:
+        "React Hooks have revolutionized how we write React components, allowing function components to use state and other React features.",
+      category: "React",
+      read_time: "8",
+      image_url: "https://picsum.photos/id/0/800/400",
+      tags: ["react", "javascript", "hooks", "frontend"],
+      content: "# Understanding React Hooks...",
+    },
+    {
+      slug: "tailwind-tips",
+      title: "Advanced Tailwind CSS Techniques for Modern Web Design",
+      excerpt:
+        "Discover advanced Tailwind CSS techniques to create beautiful, responsive designs with utility-first CSS approach.",
+      category: "CSS",
+      read_time: "12",
+      image_url: "https://picsum.photos/id/1/800/400",
+      tags: ["css", "tailwind", "design", "frontend"],
+      content: "# Advanced Tailwind CSS Techniques...",
+    },
+    {
+      slug: "nextjs-vs-react",
+      title: "Next.js vs React: When to Use Each Framework",
+      excerpt:
+        "A comprehensive comparison between Next.js and React to help you choose the right framework for your project.",
+      category: "React",
+      read_time: "10",
+      image_url: "https://picsum.photos/id/2/800/400",
+      tags: ["react", "nextjs", "framework", "frontend"],
+      content: "# Next.js vs React...",
+    },
+    {
+      slug: "javascript-es6",
+      title: "Modern JavaScript ES6+ Features You Should Know",
+      excerpt:
+        "Explore the latest JavaScript features that will make your code more readable, efficient, and maintainable.",
+      category: "JavaScript",
+      read_time: "15",
+      image_url: "https://picsum.photos/id/3/800/400",
+      tags: ["javascript", "es6", "programming", "frontend"],
+      content: "# Modern JavaScript ES6+ Features...",
+    },
+    {
+      slug: "react-performance",
+      title: "Optimizing React Performance: Best Practices",
+      excerpt:
+        "Learn how to optimize your React applications for better performance using memoization, lazy loading, and other techniques.",
+      category: "React",
+      read_time: "14",
+      image_url: "https://picsum.photos/id/4/800/400",
+      tags: ["react", "performance", "optimization", "frontend"],
+      content: "# Optimizing React Performance...",
+    },
+    {
+      slug: "css-grid-flexbox",
+      title: "CSS Grid vs Flexbox: A Complete Comparison",
+      excerpt:
+        "Understanding when to use CSS Grid vs Flexbox with practical examples and best practices for modern web layouts.",
+      category: "CSS",
+      read_time: "11",
+      image_url: "https://picsum.photos/id/5/800/400",
+      tags: ["css", "grid", "flexbox", "layout"],
+      content: "# CSS Grid vs Flexbox...",
+    },
+  ];
+
+  // Filter out current post
+  const otherPosts = allPosts.filter((post) => post.slug !== currentSlug);
+
+  if (!currentPost || !currentPost.tags) {
+    // If no current post or tags, return first 3 posts
+    return otherPosts.slice(0, 3);
+  }
+
+  // Calculate relevance score for each post
+  const scoredPosts = otherPosts.map((post) => {
+    let score = 0;
+
+    // Same category gets higher score
+    if (post.category === currentPost.category) {
+      score += 3;
+    }
+
+    // Shared tags get points
+    if (currentPost.tags && post.tags) {
+      const sharedTags = currentPost.tags.filter((tag) =>
+        post.tags.includes(tag)
+      );
+      score += sharedTags.length * 2;
+    }
+
+    return { ...post, relevanceScore: score };
+  });
+
+  // Sort by relevance score (highest first) and return top 3
+  return scoredPosts
+    .sort((a, b) => b.relevanceScore - a.relevanceScore)
+    .slice(0, 3);
+};
+
 // Main component
 const BlogPostDetail = () => {
   const { slug } = useParams(); // Get the slug from URL params
@@ -112,6 +220,7 @@ const BlogPostDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   const apiBaseUrl =
     import.meta.env.VITE_API_URL || "https://atteen-blog.vercel.app";
@@ -129,6 +238,15 @@ const BlogPostDetail = () => {
 
           if (response.ok) {
             const data = await response.json();
+
+            // Debug: Log the actual content format
+            console.log("Raw content from API:", data.post.content);
+            console.log("Content type:", typeof data.post.content);
+            console.log(
+              "First 200 characters:",
+              data.post.content?.substring(0, 200)
+            );
+
             setPost(data.post);
             // Set the page title
             document.title = `${data.post.title} | Joe Atteen's Blog`;
@@ -525,6 +643,63 @@ Both React and Next.js have their place in modern web development. React offers 
     };
   }, [slug, apiBaseUrl]);
 
+  // Fetch related posts from API or use fallback
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      if (!post) return; // Wait for main post to load first
+
+      try {
+        // Try to fetch from the API first
+        const response = await fetch(`${apiBaseUrl}/api/public-posts`);
+
+        if (response.ok) {
+          const data = await response.json();
+
+          // Filter out current post and get related posts
+          const otherPosts = data.posts.filter((p) => p.slug !== slug);
+
+          if (otherPosts.length > 0) {
+            // Calculate relevance and get top 3
+            const scoredPosts = otherPosts.map((p) => {
+              let score = 0;
+
+              // Same category gets higher score
+              if (p.category === post.category) {
+                score += 3;
+              }
+
+              // Shared tags get points (if both posts have tags)
+              if (post.tags && p.tags) {
+                const sharedTags = post.tags.filter((tag) =>
+                  p.tags.includes(tag)
+                );
+                score += sharedTags.length * 2;
+              }
+
+              return { ...p, relevanceScore: score };
+            });
+
+            const topRelated = scoredPosts
+              .sort((a, b) => b.relevanceScore - a.relevanceScore)
+              .slice(0, 3);
+
+            setRelatedPosts(topRelated);
+            return;
+          }
+        }
+      } catch (apiError) {
+        console.log("Related posts API fetch failed:", apiError);
+      }
+
+      // Fallback to hardcoded related posts
+      console.log("Using hardcoded related posts as fallback");
+      const fallbackPosts = getRelatedPosts(post, slug);
+      setRelatedPosts(fallbackPosts);
+    };
+
+    fetchRelatedPosts();
+  }, [post, slug, apiBaseUrl]);
+
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -800,9 +975,9 @@ Both React and Next.js have their place in modern web development. React offers 
 
           {/* Main Content */}
           <div className="prose prose-lg prose-invert max-w-none">
-            <div className="post-content bg-[#252525] p-6 sm:p-8 rounded-xl shadow-lg mb-8">
+            <div className="post-content mb-8">
               {/* Try our SafeMarkdown component which handles errors gracefully */}
-              <div className="text-[#f1f1f1] font-gt-light leading-relaxed">
+              <div className="text-[#f1f1f1] leading-relaxed">
                 <SafeMarkdown
                   components={{
                     h1: ({ ...props }) => (
@@ -845,18 +1020,24 @@ Both React and Next.js have their place in modern web development. React offers 
                         {...props}
                       />
                     ),
-                    code: ({ inline, ...props }) =>
-                      inline ? (
+                    code: ({ className, children, ...props }) => {
+                      const match = /language-(\w+)/.exec(className || "");
+                      const isInline =
+                        !match && !String(children).includes("\n");
+
+                      return !isInline && match ? (
+                        <CopyableCodeBlock className={className}>
+                          {String(children).replace(/\n$/, "")}
+                        </CopyableCodeBlock>
+                      ) : (
                         <code
                           className="bg-[#333] text-[#ecc9b0] px-1 py-0.5 rounded text-sm"
                           {...props}
-                        />
-                      ) : (
-                        <code
-                          className="block bg-[#333] p-4 rounded-md text-sm overflow-x-auto my-4 text-white"
-                          {...props}
-                        />
-                      ),
+                        >
+                          {children}
+                        </code>
+                      );
+                    },
                     img: ({ ...props }) => (
                       <div className="my-6">
                         <img className="rounded-lg w-full h-auto" {...props} />
@@ -1045,18 +1226,95 @@ Both React and Next.js have their place in modern web development. React offers 
               to discuss any of the topics covered.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
+              {/* <a
                 href="/"
                 className="px-5 py-2 bg-[#ecc9b0] hover:bg-[#e3a477] hover:!text-black text-[#1a1a1a] font-gt-medium rounded-md transition-all"
               >
                 More Articles
-              </a>
+              </a> */}
               <a
                 href="/"
                 className="px-5 py-2 bg-transparent border border-[#ecc9b0] text-[#ecc9b0] hover:bg-[#ecc9b0] hover:!text-[#1a1a1a] font-gt-medium rounded-md transition-all"
               >
                 Get in Touch
               </a>
+            </div>
+          </div>
+
+          {/* Related Posts Section */}
+          <div className="mt-20 mb-12">
+            <h3 className="text-2xl font-gt-semibold text-white mb-8">
+              Related Articles
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {relatedPosts.map((relatedPost) => (
+                <Link
+                  key={relatedPost.slug}
+                  to={`/blog/${relatedPost.slug}`}
+                  className="group bg-[#1e1e1e] hover:bg-[#252525] rounded-xl overflow-hidden transition-all duration-300 border border-[#333]"
+                >
+                  <div className="aspect-video bg-gradient-to-br from-[#ecc9b0] to-[#e3a477] relative overflow-hidden">
+                    {relatedPost.image_url ? (
+                      <img
+                        src={relatedPost.image_url}
+                        alt={relatedPost.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-12 w-12 text-[#1a1a1a] opacity-60"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    {/* <div className="flex items-center gap-4 mb-3">
+                      <span className="px-3 py-1 bg-[#ecc9b0] text-[#1a1a1a] text-xs font-gt-medium rounded-full">
+                        {relatedPost.category}
+                      </span>
+                      <span className="text-[#a0a0a0] text-sm">
+                        {relatedPost.read_time} min read
+                      </span>
+                    </div> */}
+                    <h4 className="text-white font-gt-semibold text-lg mb-3 group-hover:text-[#ecc9b0] transition-colors line-clamp-2">
+                      {relatedPost.title}
+                    </h4>
+                    <p className="text-[#a0a0a0] text-sm line-clamp-3 mb-4">
+                      {relatedPost.excerpt ||
+                        relatedPost.content.substring(0, 120) + "..."}
+                    </p>
+                    <div className="flex items-center text-[#ecc9b0] text-sm font-gt-medium">
+                      Read More
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

@@ -41,11 +41,10 @@ const Hero = () => {
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#151515] to-[#1a1a1a]"></div>
 
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div>
+      {/* <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div> */}
 
       {/* Hero content container with parallax */}
       <div
-        ref={heroRef}
         className={`max-w-[1300px] w-full mx-auto px-4 z-10 flex flex-col items-center justify-center text-center ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         } transition-all duration-1000 ease-in-out`}
@@ -59,9 +58,6 @@ const Hero = () => {
               alt="Joe Atteen"
               className="w-full h-full object-cover rounded-full transition-transform duration-700 group-hover:scale-110"
             />
-          </div>
-          <div className="absolute h-14 w-14 bg-gradient-to-br from-[#ecc9b0] to-[#e3a477] rounded-full bottom-0 -right-2 sm:right-auto sm:left-[67%] flex items-center justify-center z-20 shadow-lg">
-            <span className="text-black text-xl animate-wave">👋</span>
           </div>
         </div>
 
