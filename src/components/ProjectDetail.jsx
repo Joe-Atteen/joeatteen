@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { getProjectBySlug, projects } from "../data/projectsData";
 import Footer from "../Footer";
-import TopNav from "../TopNav";
 import PageTransition from "./PageTransition";
 
 const ProjectDetail = () => {
@@ -20,9 +19,7 @@ const ProjectDetail = () => {
   return (
     <PageTransition>
       <div className="py-10 max-w-7xl mx-auto px-6">
-        <TopNav />
-
-        <section className="pb-16">
+        <section className="py-16">
           <div className="max-w-3xl">
             <div className="flex items-center mb-6">
               <div className="h-px bg-[#ecc9b0]/60 w-10 mr-4"></div>
