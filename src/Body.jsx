@@ -62,7 +62,7 @@ const Body = () => {
       <section
         id="work"
         ref={workRef}
-        className={`py-10 md:py-12 ${fadeInClass} ${
+        className={`pb-10 md:pb-12 ${fadeInClass} ${
           visibleSections.work
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
@@ -81,59 +81,9 @@ const Body = () => {
             </h2>
             <p className="font-gt-light text-[#c7c7c7] max-w-2xl sm:text-lg leading-relaxed">
               A curated selection of projects showcasing my focus on user
-              experience, clean frontend architecture, and responsive design —
-              built for real users and real impact.
+              experience, clean frontend architecture, and responsive design.
             </p>
           </div>
-
-          {/* Project Grid */}
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-20 mb-24">
-            {projects
-              .filter((project) =>
-                ["cedirates", "creditscore", "dev-portal"].includes(project.id)
-              )
-              .map((project, index) => (
-                <a key={index} href={project.link} className="group">
-                  <div className="h-64 overflow-hidden mb-6 rounded-md relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute bottom-0 right-0 m-3 w-10 h-10 bg-[#ecc9b0]/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-50">
-                      <i className="fa fa-arrow-right text-black/80 text-xs"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-gt-regular text-lg text-white mb-2 group-hover:text-[#ecc9b0] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="font-gt-light text-[#c7c7c7] mb-4 leading-relaxed">
-                      {project.shortDescription}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-[#c7c7c7]/70 px-0 py-0 text-xs font-gt-light"
-                        >
-                          <span className="me-1">{tech}</span>
-                          {i < project.technologies.length - 1 ? " • " : ""}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-2 text-[#ecc9b0]/80 mt-3">
-                      <span className="font-gt-light text-sm group-hover:text-[#ecc9b0]">
-                        View Project
-                      </span>
-                      <i className="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                  </div>
-                </a>
-              ))}
-          </div> */}
-
           <EmblaCarousel slides={projects} options={OPTIONS} />
         </div>
       </section>

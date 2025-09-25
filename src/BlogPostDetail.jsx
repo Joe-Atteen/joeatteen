@@ -952,7 +952,7 @@ Both React and Next.js have their place in modern web development. React offers 
             </div> */}
 
             <Link
-              to="/#blog"
+              to="/blog"
               className="text-[#ecc9b0] hover:text-[#e3a477] font-gt-medium text-sm flex items-center transition-all"
             >
               <svg

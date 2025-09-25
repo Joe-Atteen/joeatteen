@@ -37,7 +37,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   return (
     <section className="embla">
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex mb-12">
+        <div className="embla__container flex mb-3">
           {slides.map((slide, index) => (
             <div
               className="embla__slide flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"

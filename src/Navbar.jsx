@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import logo from "./assets/images/nav-img.webp";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,19 +19,6 @@ const Navbar = () => {
         setScrolled(true);
       } else {
         setScrolled(false);
-      }
-
-      // Update active section based on scroll position
-      const sections = ["home", "about", "work", "contact"];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
       }
     };
 
@@ -46,9 +34,11 @@ const Navbar = () => {
   };
 
   const navItems = [
-    // { name: "Home", href: "#home" },
-    // { name: "About", href: "#about" },
-    // { name: "Work", href: "#work" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Projects", href: "/projects" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -79,28 +69,30 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div
-            className={`hidden md:flex items-center gap-12 ${
+            className={`hidden md:flex items-center absolute transform left-1/2 -translate-x-1/2 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-10"
             } transition-all duration-700 ease-in-out`}
           >
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`font-gt-thin text-base relative ${
-                  activeSection === item.href.substring(1)
-                    ? "text-[#ecc9b0]"
-                    : "text-white hover:text-[#ecc9b0]"
-                } transition-colors duration-300`}
-              >
-                {item.name}
-                {activeSection === item.href.substring(1) && (
-                  <span className="absolute -bottom-1 left-0 h-0.5 bg-[#ecc9b0] w-full"></span>
-                )}
-              </a>
-            ))}
+            <div className="bg-[#1a1a1a] border border-[#333]/30 rounded-md p-1 flex items-center gap-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`md:px-4 lg:px-6 py-2 rounded-md text-sm transition-all duration-300 ${
+                      isActive
+                        ? "bg-[#ecc9b0] text-black hover:!text-black"
+                        : "text-white hover:bg-[#333]/50"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -159,20 +151,23 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={toggleMenu}
-              className={`font-gt-medium text-2xl ${
-                activeSection === item.href.substring(1)
-                  ? "text-[#ecc9b0]"
-                  : "text-white"
-              }`}
-            >
-              {item.name}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.href;
+            return (
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={toggleMenu}
+                className={`font-gt-medium text-2xl transition-colors duration-300 hidden ${
+                  isActive
+                    ? "text-[#ecc9b0]"
+                    : "text-white hover:text-[#ecc9b0]"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
           <a
             href="/atteen-resume.pdf"
             target="_blank"

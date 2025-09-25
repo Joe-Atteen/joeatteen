@@ -91,18 +91,18 @@ const ProjectDetail = () => {
           </div>
 
           <div className="flex justify-between items-center py-8 mt-16 border-t border-[#333]/30">
-            <a
-              href="/"
+            <Link
+              to="/projects"
               className="flex items-center gap-2 group text-[#c7c7c7] font-gt-light hover:text-[#ecc9b0] transition-colors"
             >
               <i className="fas fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i>
               Back to Projects
-            </a>
+            </Link>
 
             <a
               href={project.projectUrl}
               target="_blank"
-              className="flex items-center gap-2 group bg-transparent border border-[#ecc9b0]/70 text-[#ecc9b0] hover:bg-[#ecc9b0]/5 font-gt-light px-5 py-2 rounded-full transition-all duration-300"
+              className="flex items-center gap-2 group bg-transparent border border-[#ecc9b0]/70 text-[#ecc9b0] hover:bg-[#ecc9b0]/5 font-gt-light px-5 py-2 rounded-md transition-all duration-300"
             >
               Visit Live Site
               <i className="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
@@ -187,8 +187,8 @@ const ProjectDetail = () => {
 
           <div className="text-center mt-12">
             <Link
-              to="/#work"
-              className="inline-flex items-center gap-2 group bg-transparent border border-[#ecc9b0]/70 text-[#ecc9b0] hover:bg-[#ecc9b0]/5 font-gt-light px-6 py-3 rounded-full transition-all duration-300"
+              to="/projects"
+              className="inline-flex items-center gap-2 group bg-transparent border border-[#ecc9b0]/70 text-[#ecc9b0] hover:bg-[#ecc9b0]/5 font-gt-light px-6 py-3 rounded-md transition-all duration-300"
             >
               View All Projects
               <i className="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>

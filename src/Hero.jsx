@@ -61,36 +61,30 @@ const Hero = () => {
           </div>
         </div>
 
-        <h1 className="font-gt-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 tracking-tight relative">
+        <h1 className="font-gt-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight relative">
           <span className="inline-block relative overflow-hidden">
             <span className="inline-block">JOE E. ATTEEN</span>
             <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#ecc9b0]/50 to-transparent"></span>
           </span>
         </h1>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <h2
             className={`font-gt-medium text-xl sm:text-2xl md:text-3xl text-[#c7c7c7] ${
               isVisible ? "opacity-100" : "opacity-0"
-            } transition-opacity duration-1000 delay-700 ease-in-out flex items-center justify-center gap-2`}
+            } transition-opacity duration-1000 delay-700 ease-in-out`}
           >
-            <span>Software</span>
-            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ecc9b0] to-[#e3a477] animate-pulse"></span>
-            <span className="text-[#ecc9b0] relative">
-              UI Engineer
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#ecc9b0]/20"></span>
-            </span>
+            Software Engineer
           </h2>
         </div>
 
         <p
-          className={`max-w-xl mx-auto text-[#a7a7a7] font-gt-light text-lg mb-6 relative ${
+          className={`max-w-xl mx-auto text-[#a7a7a7] font-gt-light sm:text-lg mb-6 relative ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           } transition-all duration-1000 delay-500 ease-in-out`}
         >
           <span className="">
-            I craft intuitive and high-performance user interfaces that bridge
-            the gap between design and engineering.
+            Front-end specialist focused on crafting intuitive, accessible interfaces, with versatility to architect backend solutions when needed.
             <span className="absolute -bottom-4 left-0 w-1/4 h-[1px] bg-gradient-to-r from-[#ecc9b0] to-transparent"></span>
             <span className="absolute -bottom-4 right-0 w-1/4 h-[1px] bg-gradient-to-l from-[#ecc9b0] to-transparent"></span>
           </span>
