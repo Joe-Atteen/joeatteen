@@ -146,7 +146,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-black/95 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full bg-black/95 z-40 transition-all duration-300 md:hidden ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
@@ -175,27 +175,41 @@ const Navbar = () => {
           >
             View Resume
           </a>
-          <div className="mt-12 flex gap-6">
+          <div className="mt-6 flex gap-6">
             <a
               href="https://github.com/Joe-Atteen"
               target="_blank"
               className="text-white hover:text-[#ecc9b0]"
             >
-              <i className="fab fa-github text-xl"></i>
+              <i className="fab fa-github text-3xl"></i>
             </a>
             <a
               href="https://www.linkedin.com/in/joe-atteen/"
               target="_blank"
               className="text-white hover:text-[#ecc9b0]"
             >
-              <i className="fab fa-linkedin text-xl"></i>
+              <i className="fab fa-linkedin text-3xl"></i>
             </a>
             <a
               href="https://twitter.com/joe_atteen"
               target="_blank"
               className="text-white hover:text-[#ecc9b0]"
             >
-              <i className="fab fa-x-twitter text-xl"></i>
+              <i className="fab fa-x-twitter text-3xl"></i>
+            </a>
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              className="text-white hover:text-[#ecc9b0]"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-whatsapp text-3xl"></i>
+            </a>
+            <a
+              href="mailto:joeyatteen@email.com"
+              className="text-white hover:text-[#ecc9b0]"
+            >
+              <i className="fas fa-envelope text-3xl"></i>
             </a>
           </div>
         </div>

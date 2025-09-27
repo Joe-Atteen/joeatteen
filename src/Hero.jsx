@@ -36,22 +36,20 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className="min-h-dvh relative overflow-hidden flex items-center justify-center hero"
+      className="min-h-[calc(100dvh-70px)] md:min-h-dvh relative overflow-hidden flex items-center justify-center hero"
     >
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#151515] to-[#1a1a1a]"></div>
 
-      {/* <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div> */}
-
       {/* Hero content container with parallax */}
       <div
-        className={`max-w-[1300px] w-full mx-auto px-4 z-10 flex flex-col items-center justify-center text-center ${
+        className={`max-w-[1300px] w-full mx-auto pt-10 px-4 z-10 flex flex-col items-center justify-center text-center ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         } transition-all duration-1000 ease-in-out`}
       >
         <div className="mb-8 relative group">
           <div className="absolute inset-0 bg-black/10 rounded-full blur-md opacity-50 group-hover:opacity-70 transition-opacity duration-300 animate-rotate-slow"></div>
-          <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] mx-auto rounded-full border-4 border-[#ecc9b0] p-2 shadow-xl shadow-[#ecc9b0]/20 relative z-10 transition-all duration-300 group-hover:border-[#e3a477] overflow-hidden">
+          <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] mx-auto rounded-full border-4 border-[#ecc9b0] p-[6px] shadow-xl shadow-[#ecc9b0]/20 relative z-10 transition-all duration-300 group-hover:border-[#e3a477] overflow-hidden">
             <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity z-20 rounded-full"></div>
             <img
               src={hero}
@@ -84,14 +82,16 @@ const Hero = () => {
           } transition-all duration-1000 delay-500 ease-in-out`}
         >
           <span className="">
-            Front-end specialist focused on crafting intuitive, accessible interfaces, with versatility to architect backend solutions when needed.
-            <span className="absolute -bottom-4 left-0 w-1/4 h-[1px] bg-gradient-to-r from-[#ecc9b0] to-transparent"></span>
-            <span className="absolute -bottom-4 right-0 w-1/4 h-[1px] bg-gradient-to-l from-[#ecc9b0] to-transparent"></span>
+            Front-end specialist focused on crafting intuitive, accessible
+            interfaces, with versatility to architect backend solutions when
+            needed.
+            <span className="absolute -bottom-4 left-0 w-1/4 h-[1px] bg-gradient-to-r from-[#ecc9b0] to-transparent hidden md:block"></span>
+            <span className="absolute -bottom-4 right-0 w-1/4 h-[1px] bg-gradient-to-l from-[#ecc9b0] to-transparent hidden md:block"></span>
           </span>
         </p>
 
         <div
-          className={`flex items-center justify-center gap-4 relative ${
+          className={`md:flex items-center justify-center gap-4 relative hidden ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           } transition-all duration-1000 delay-700 ease-in-out`}
         >
