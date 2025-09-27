@@ -68,7 +68,7 @@ const Contact = () => {
           <motion.div variants={itemVariants}>
             <div className="bg-[#1a1a1a] rounded-2xl p-4 sm:p-8 border border-[#333] h-full">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#ecc9b0]/10 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 px-3 bg-[#ecc9b0]/10 rounded-xl flex items-center justify-center mr-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-[#ecc9b0]"
@@ -84,7 +84,7 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-gt-semibold text-white">
+                <h3 className="text-xl md:text-2xl font-gt-semibold text-white">
                   Available for Exciting Projects
                 </h3>
               </div>
@@ -162,7 +162,7 @@ const Contact = () => {
           <motion.div variants={itemVariants}>
             <div className="bg-[#1a1a1a] rounded-2xl p-4 sm:p-8 border border-[#333] h-full">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#ecc9b0]/10 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 px-3 bg-[#ecc9b0]/10 rounded-xl flex items-center justify-center mr-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-[#ecc9b0]"
@@ -178,7 +178,7 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-gt-semibold text-white">
+                <h3 className="text-xl md:text-2xl font-gt-semibold text-white">
                   Connect With Me
                 </h3>
               </div>

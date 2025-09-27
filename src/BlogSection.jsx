@@ -232,27 +232,6 @@ const BlogSection = () => {
         </div>
       )}
 
-      <style>
-        {`
-              .shimmer::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -150px;
-                height: 100%;
-                width: 150px;
-                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(236,201,176,0.15) 50%, rgba(255,255,255,0) 100%);
-                animation: shimmer 1.5s infinite;
-                z-index: 1;
-              }
-              @keyframes shimmer {
-                100% {
-                  left: 100%;
-                }
-              }
-            `}
-      </style>
-
       {error && (
         <div className="bg-[#2a2a2a] border-l-4 border-red-500 p-4 rounded-md max-w-2xl mx-auto">
           <div className="flex">

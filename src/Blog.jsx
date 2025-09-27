@@ -164,15 +164,17 @@ const Blog = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-16"
+            className="max-w-[1300px] mx-auto"
           >
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#ecc9b0] border-t-transparent mb-4"></div>
-            <h3 className="text-xl font-gt-semibold text-white mb-2">
-              Loading Blog Posts
-            </h3>
-            <p className="text-[#c7c7c7] font-gt-light">
-              Please wait while we fetch the latest articles...
-            </p>
+            <div className="flex items-center justify-center gap-3 mb-14">
+              <div className="bg-[#252525] rounded-3xl h-[35px] w-[70px] relative overflow-hidden shimmer"></div>
+              <div className="bg-[#252525] rounded-3xl h-[35px] w-[70px] relative overflow-hidden shimmer"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+              <div className="bg-[#252525] rounded-2xl h-[420px] w-full relative overflow-hidden shimmer"></div>
+              <div className="bg-[#252525] rounded-2xl h-[420px] w-full relative overflow-hidden shimmer"></div>
+              <div className="bg-[#252525] rounded-2xl h-[420px] w-full relative overflow-hidden shimmer"></div>
+            </div>
           </motion.div>
         )}
 
