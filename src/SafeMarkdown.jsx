@@ -44,10 +44,14 @@ const SafeMarkdown = ({ children, components = {} }) => {
   }
 
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose prose-lg max-w-none prose-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
         components={mergedComponents}
+        remarkRehypeOptions={{
+          clobberPrefix: "",
+          whitespace: "pre-wrap"
+        }}
       >
         {children}
       </ReactMarkdown>

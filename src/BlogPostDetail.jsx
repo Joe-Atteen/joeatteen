@@ -1233,7 +1233,7 @@ Both React and Next.js have their place in modern web development. React offers 
                 More Articles
               </a> */}
               <a
-                href="/"
+                href="/contact"
                 className="px-5 py-2 bg-transparent border border-[#ecc9b0] text-[#ecc9b0] hover:bg-[#ecc9b0] hover:!text-[#1a1a1a] font-gt-medium rounded-md transition-all"
               >
                 Get in Touch
