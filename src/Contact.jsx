@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import Footer from "./Footer";
+import SEO from "./components/SEO";
+import { trackExternalLink, trackContactForm } from "./utils/analytics-gtm";
 
 const Contact = () => {
   // Animation variants
@@ -24,6 +26,21 @@ const Contact = () => {
     },
   };
 
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Joe Atteen",
+      email: "atteen.joe@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Accra",
+        addressCountry: "Ghana",
+      },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,6 +49,14 @@ const Contact = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-[#0a0a0a] text-white"
     >
+      <SEO
+        title="Contact Joe Atteen - Get In Touch"
+        description="Get in touch with Joe Atteen for collaboration opportunities, project discussions, or technical consulting. Available for freelance and full-time opportunities."
+        keywords="Contact Joe Atteen, Hire Joe Atteen, Software Engineer Contact, Ghana Developer Contact, Freelance Developer"
+        canonicalUrl="https://joeatteen.com/contact"
+        type="website"
+        structuredData={contactStructuredData}
+      />
       <div className="max-w-[1300px] mx-auto px-4 py-16">
         {/* Header Section */}
         <motion.div
@@ -119,6 +144,7 @@ const Contact = () => {
                     <a
                       href="mailto:joeyatteen@gmail.com"
                       className="text-white font-gt-medium hover:text-[#ecc9b0] transition-colors"
+                      onClick={() => trackContactForm("email")}
                     >
                       joeyatteen@gmail.com
                     </a>
@@ -191,6 +217,12 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center p-4 bg-[#252525] rounded-xl hover:bg-[#333] transition-all duration-300 group"
+                  onClick={() =>
+                    trackExternalLink(
+                      "https://github.com/Joe-Atteen",
+                      "GitHub Profile"
+                    )
+                  }
                 >
                   <div className="text-center">
                     <i className="fab fa-github text-2xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors mb-2"></i>
@@ -204,6 +236,12 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center p-4 bg-[#252525] rounded-xl hover:bg-[#333] transition-all duration-300 group"
+                  onClick={() =>
+                    trackExternalLink(
+                      "https://linkedin.com/in/joe-atteen",
+                      "LinkedIn Profile"
+                    )
+                  }
                 >
                   <div className="text-center">
                     <i className="fab fa-linkedin-in text-2xl text-[#c7c7c7] group-hover:text-[#ecc9b0] transition-colors mb-2"></i>

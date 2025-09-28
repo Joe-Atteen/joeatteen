@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"; // If using React Router
 import PropTypes from "prop-types";
 import SafeMarkdown from "./SafeMarkdown";
 import CopyableCodeBlock from "./CopyableCodeBlock";
+import { trackBlogPost } from "./utils/analytics-gtm";
 import "./prose.css";
 
 // Reusable components
@@ -250,6 +251,8 @@ const BlogPostDetail = () => {
             setPost(data.post);
             // Set the page title
             document.title = `${data.post.title} | Joe Atteen's Blog`;
+            // Track blog post view
+            trackBlogPost(data.post.title);
             return; // Exit if successful
           }
         } catch (apiError) {
@@ -618,6 +621,7 @@ Both React and Next.js have their place in modern web development. React offers 
 
         setPost(mockPost);
         document.title = `${mockPost.title} | Joe Atteen's Blog`;
+        // Note: No analytics tracking for mock data
       } catch (err) {
         console.error("Error in blog post detail:", err);
         setError("Failed to load blog post. Please try again later.");

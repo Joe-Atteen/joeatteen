@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /about
+Allow: /projects
+Allow: /blog
+Allow: /contact
+Allow: /resume
+
+# Sitemap location
+Sitemap: https://joeatteen.com/sitemap.xml
+
+# Block any admin or private areas (if any exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "./data/projectsData";
 import Footer from "./Footer";
+import SEO from "./components/SEO";
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
@@ -35,8 +36,27 @@ const Projects = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const projectsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Joe Atteen's Projects",
+    description:
+      "Portfolio of web development projects by Joe Atteen, showcasing React, JavaScript, and full-stack applications.",
+    author: {
+      "@type": "Person",
+      name: "Joe Atteen",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
+      <SEO
+        title="Projects - Joe Atteen Portfolio"
+        description="Explore Joe Atteen's portfolio of web development projects including React applications, JavaScript solutions, and full-stack development work."
+        keywords="Joe Atteen Projects, Portfolio, React Projects, JavaScript Projects, Web Development, Frontend Projects"
+        canonicalUrl="https://joeatteen.com/projects"
+        structuredData={projectsStructuredData}
+      />
       <div className="py-20 max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <motion.div

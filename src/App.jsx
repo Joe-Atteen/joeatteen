@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import Home from "./Home";
 import About from "./About";
 import Projects from "./Projects";
@@ -11,10 +12,14 @@ import BlogPostDetail from "./BlogPostDetail";
 import MobileBottomNav from "./MobileBottomNav";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./Navbar";
+import { initGTM, useGoogleAnalytics } from "./utils/analytics-gtm";
 
 // This component is needed to access the location for AnimatePresence
 const AnimatedRoutes = () => {
   const location = useLocation();
+
+  // Use Google Analytics hook for automatic page tracking
+  useGoogleAnalytics();
 
   return (
     <AnimatePresence mode="wait">
@@ -33,6 +38,11 @@ const AnimatedRoutes = () => {
 };
 
 function App() {
+  // Initialize Google Tag Manager DataLayer on app start
+  useEffect(() => {
+    initGTM();
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />

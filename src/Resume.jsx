@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import generatePDF from "react-to-pdf";
+import { trackDownload } from "./utils/analytics-gtm";
 
 const Resume = () => {
   const resumeRef = useRef();
@@ -9,9 +10,10 @@ const Resume = () => {
       <div className="text-right">
         <button
           className="text-white mb-7 border border-gray-100 hover:border-gray-100 hover:bg-gray-100 hover:text-black font-gt-medium"
-          onClick={() =>
-            generatePDF(resumeRef, { filename: "atteen-resume.pdf" })
-          }
+          onClick={() => {
+            generatePDF(resumeRef, { filename: "atteen-resume.pdf" });
+            trackDownload("atteen-resume.pdf");
+          }}
         >
           Download as PDF
         </button>

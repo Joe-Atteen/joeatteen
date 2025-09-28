@@ -1,8 +1,29 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SEO from "./components/SEO";
 
 const About = () => {
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Joe Atteen",
+      jobTitle: "Software Engineer",
+      description:
+        "Software Engineer who leads teams to build exceptional digital experiences. Frontend specialist who architects full-stack solutions.",
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Software Engineer",
+        occupationLocation: {
+          "@type": "City",
+          name: "Accra, Ghana",
+        },
+      },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,6 +32,14 @@ const About = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-[#0a0a0a] text-white"
     >
+      <SEO
+        title="About Joe Atteen - Software Engineer & Team Leader"
+        description="Learn about Joe Atteen, a Software Engineer who leads teams to build exceptional digital experiences. Frontend specialist with full-stack capabilities based in Ghana."
+        keywords="Joe Atteen About, Software Engineer Background, Frontend Specialist, Team Leader, Ghana Developer, React Expert"
+        canonicalUrl="https://joeatteen.com/about"
+        type="profile"
+        structuredData={aboutStructuredData}
+      />
       {/* Main Content */}
       <section className="py-10 md:py-16">
         <div className="max-w-[1300px] mx-auto px-4 pt-16">

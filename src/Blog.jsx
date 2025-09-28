@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SEO from "./components/SEO";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -104,6 +105,19 @@ const Blog = () => {
     });
   };
 
+  const blogStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Joe Atteen's Blog",
+    description:
+      "Thoughts, tutorials, and insights on web development, technology, and software engineering by Joe Atteen.",
+    author: {
+      "@type": "Person",
+      name: "Joe Atteen",
+    },
+    url: "https://joeatteen.com/blog",
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -112,6 +126,13 @@ const Blog = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-[#0a0a0a] text-white"
     >
+      <SEO
+        title="Blog - Joe Atteen"
+        description="Read Joe Atteen's thoughts, tutorials, and insights on web development, technology, and the ever-evolving world of software engineering."
+        keywords="Joe Atteen Blog, Web Development Blog, Technology Blog, JavaScript Tutorials, React Blog, Software Engineering"
+        canonicalUrl="https://joeatteen.com/blog"
+        structuredData={blogStructuredData}
+      />
       <div className="max-w-[1300px] mx-auto px-4 py-16">
         {/* Header Section */}
         <motion.div
